@@ -1,0 +1,196 @@
+<div class="app-job">
+    <div class="row">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="app-job-title-separate">
+                    <span>Web Project</span>
+                    <div class="hr-custom-title"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let job of jobs; trackBy let i=index">
+            <div class="close" (click)="outDisplay(job)" [ngClass]="{'close-displayed': job.stateAnim == 'displayOk'}"></div>
+            <div class="app-job-content" (click)="display(job)" [@displayElement]="job.stateAnim">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <span [ngClass]="{'app-job-content-span': job.stateAnim == 'displayOk'}">{{job.title}}</span>
+                        <p [ngClass]="{'app-job-content-p-displayed': job.stateAnim == 'displayOk'}">{{job.description}}<br>
+                            <a *ngIf="job.iconGit == true" href="{{job.gitLink}}" title="Git-Hub"> <i class="fab fa-github-square" aria-hidden="true"></i></a>
+                            <a *ngIf="job.viewProjet == true" data-toggle="modal" href="{{job.link}}" [attr.data-target]="'#' + job.modalId"><i class="fas fa-eye"></i></a>  
+                        </p>
+                        
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <img src={{job.logo}} alt="" class="img-job app-job-img-displayed">
+                    </div>
+                </div>
+                <hr>
+                <div class="app-job-techno" *ngFor="let arrayJob of job.imgContent;" >
+                    <i *ngIf="arrayJob.classIcon1" class="{{arrayJob.classIcon1}}"></i>
+                    <i *ngIf="arrayJob.classIcon2" class="{{arrayJob.classIcon2}}"></i>
+                    <i *ngIf="arrayJob.classIcon3" class="{{arrayJob.classIcon3}}"></i>
+                    <i *ngIf="arrayJob.classIcon4" class="{{arrayJob.classIcon4}}"></i>
+                    <i *ngIf="arrayJob.classIcon5" class="{{arrayJob.classIcon5}}"></i>
+                    <i *ngIf="arrayJob.classIcon6" class="{{arrayJob.classIcon6}}"></i>
+                    <i *ngIf="arrayJob.classIcon7" class="{{arrayJob.classIcon7}}"></i>
+                    <i *ngIf="arrayJob.classIcon8" class="{{arrayJob.classIcon8}}"></i>                                                                                                
+                </div>
+            </div>
+        </div>          
+    </div>
+
+    <div class="row">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="app-job-title-separate">
+                    <span>Print Project</span>
+                    <div class="hr-custom-title"></div>
+                </div>
+            </div>
+        </div>        
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let print of prints; trackBy let i=index">
+            <div class="close" (click)="outDisplay2(print)" [ngClass]="{'close-displayed': print.stateAnim == 'displayOk'}"></div>
+            <div class="app-job-content" (click)="display2(print)" [@displayElement]="print.stateAnim">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <span [ngClass]="{'app-job-content-span': print.stateAnim == 'displayOk'}">{{print.title}}</span>
+                        <p [ngClass]="{'app-job-content-p-displayed': print.stateAnim == 'displayOk'}">{{print.description}}<br>
+                            <a *ngIf="print.viewProjet == true" data-toggle="modal" href="{{print.link}}" [attr.data-target]="'#' + print.modalId"><i class="fa fa-eye"></i></a>  
+                        </p>
+                        
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <img src={{print.logo}} alt="" class="img-job app-job-img-displayed">
+                    </div>
+                </div>
+                <hr>
+                <div class="app-job-techno" *ngFor="let arrayPrint of print.imgContent;" >
+                    <i *ngIf="arrayPrint.classIcon1" class="{{arrayPrint.classIcon1}}"></i>
+                    <i *ngIf="arrayPrint.classIcon2" class="{{arrayPrint.classIcon2}}"></i>
+                    <i *ngIf="arrayPrint.classIcon3" class="{{arrayPrint.classIcon3}}"></i>
+                    <i *ngIf="arrayPrint.classIcon4" class="{{arrayPrint.classIcon4}}"></i>
+                    <i *ngIf="arrayPrint.classIcon5" class="{{arrayPrint.classIcon5}}"></i>
+                    <i *ngIf="arrayPrint.classIcon6" class="{{arrayPrint.classIcon6}}"></i>
+                    <i *ngIf="arrayPrint.classIcon7" class="{{arrayPrint.classIcon7}}"></i>
+                    <i *ngIf="arrayPrint.classIcon8" class="{{arrayPrint.classIcon8}}"></i>                                                                                                
+                </div>
+            </div>
+        </div>          
+    </div>    
+</div>
+
+  
+  <!-- Modal Jeu -->
+  <div class="modal fade hidden-sm-up" id="modalJeuNinja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-content">
+        <div id="ancre3" class="slide3">
+            <div id="conteneurJeu" class="text-center hidden-sm hidden-xs slide_inside3">
+                <div class="row">
+                    <div id="lesInstructions">
+                        <div class="instructions"><img class="imgInstructions" src="assets/ninjaCv/sprite/instructionsJeu.jpg" alt="instructions de jeu"></div>
+                    </div>
+                    <div class="col-md-12 col-lg-12 ninjaCv">
+                        <canvas id="canvasJeu">Votre navigateur ne supporte pas HTML5, veuillez le mettre à jour pour jouer.</canvas>
+                        <div class="logoVie">
+                            <div class="vie1"><img src="assets/ninjaCv/images/viePersonnage.png" alt="Logo vie Perso"></div>
+                            <div class="vie2"><img src="assets/ninjaCv/images/viePersonnage.png" alt="Logo vie Perso"></div>
+                            <div class="vie3"><img src="assets/ninjaCv/images/viePersonnage.png" alt="Logo vie Perso"></div>
+                            <div class="divBarreAttaque"><div class="barreAttaque"></div></div>
+                            <div class="divBarreDefense"><div class="barreDefense"></div></div>
+                        </div>
+                        <audio id="sons"></audio>
+                        <audio id="coup"></audio>
+                        <audio id="coupEnnemi"></audio>
+                        <audio id="impact"></audio>
+                    </div>
+                    <div class="youwin">
+                        <img class="imgyl1" src="assets/ninjaCv/sprite/tuas.png" alt="txtyl">
+                        <img class="imgyw2" src="assets/ninjaCv/sprite/reussi.png" alt="txtyl">
+                        <img class="imgLogoJoueyl" src="assets/ninjaCv/images/logoJoue.png"/>
+                        <a href="assets/ninjaCv/images/Cv-developpeur.pdf"><img class="imgLogoCvyl" src="assets/ninjaCv/images/logoCv.png"/></a>
+                    </div>
+                    <div class="youlose">
+                        <img class="imgyl1" src="assets/ninjaCv/sprite/tuas.png" alt="txtyl">
+                        <img class="imgyl2" src="assets/ninjaCv/sprite/perdu.png" alt="txtyl">
+                        <img class="imgLogoJoueyl" src="assets/ninjaCv/images/logoJoue.png"/>
+                        <a href="assets/ninjaCv/images/Cv-developpeur.pdf"><img class="imgLogoCvyl" src="assets/ninjaCv/images/logoCv.png"/></a>
+                    </div>
+                    <div class="presentationJeu">
+                        <div class="col-md-12 col-lg-12">
+                            <div id="console2">
+                                <p id="consoleText2"></p>
+                            </div>
+                        </div>
+                        <div class="logoJoueEtCv text-center">
+                            <div class="titreNinjaCv"></div>
+                            <img class="imgLogoInstructions" src="assets/ninjaCv/images/logo-instructions.png"/>
+                            <img class="imgLogoJoue" src="assets/ninjaCv/images/logoJoue.png"/>
+                            <a href="assets/ninjaCv/images/Cv-developpeur.pdf"><img class="imgLogoCv" src="assets/ninjaCv/images/logoCv.png"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal Write it social -->
+
+    <div class="modal fade" id="modalWriteItSocial" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header text-center">
+            <img src="../assets/images/logoWriteItSocial.png" alt="" width="33%">
+        </div>
+        <div class="modal-body">
+            <video width="100%" autoplay>
+                <source
+                    src="../assets/videos/writeitsocial.webm"
+                    type="video/webm">
+                <source
+                    src="../assets/videos/writeitsocial.mp4"
+                    type="video/mp4">
+                <source
+                    src="../assets/videos/writeitsocial.mov"
+                    type="video/mov">
+                Votre navigateur ne permet pas de lire les vidéos HTML5.
+            </video>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <img src="../assets/images/mockup-write-it-social.png" width="100%" alt="Write it social">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+<!-- Modal print -->
+<div *ngFor="let printModal of prints;">
+    <div class="modal fade" id="{{printModal.modalId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <b>{{printModal.title}}</b>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <img class="img-modal-full" src="{{printModal.img1}}" alt="La fete de la moto">
+                        <img class="img-modal-absolute" src="{{printModal.img2}}" alt="La fete de la moto">
+                        <img class="img-modal-absolute" src="{{printModal.img3}}" alt="La fete de la moto" style="top:200px;">                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+

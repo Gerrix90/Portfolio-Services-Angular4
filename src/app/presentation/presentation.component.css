@@ -1,0 +1,119 @@
+.mdl-card{
+    width: 100%;
+}
+.app-pres {
+    background-image: url('../../assets/images/img-pres.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-position: center;
+}
+
+.app-pres-logo {
+    
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6639b6+0,000000+52 */
+    background: #6639b6; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #6639b6 0%, #000000 52%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #6639b6 0%,#000000 52%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #6639b6 0%,#000000 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6639b6', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    margin-top: 50px;
+}
+
+.app-pres-logo h1{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.app-pres-logo h2 span{
+    font-size: 5.5vw;
+    display: inline-block;
+}
+
+.app-pres-logo h2 span:first-child{
+    font-family: 'Alfa Slab One', cursive;
+    color: white;
+}
+
+.app-pres-logo h2 span:nth-child(2){
+	background: -webkit-linear-gradient(to left, #673AB7, white);
+	background: linear-gradient(to left, #673AB7, white);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    font-size: 20vw;
+    display: inline;
+}
+
+.app-pres-logo h2 span:last-child{
+    font-family: 'Righteous', cursive;
+    color: #673AB7;
+}
+        
+.app-pres-logo a{
+    text-decoration: none;
+    color: white;
+    cursor:pointer;
+}
+
+
+.app-pres-socials a
+{
+    display: block;
+    font-size: 42px;
+    opacity: 0.4;
+    margin-bottom: 10px;
+    transition: all 0.5s ease-out;
+}
+
+.app-pres-socials a:hover
+{
+    opacity: 1;
+    color: white;
+    transform: rotate(60deg);
+    transform: scale(1.5);
+}
+
+
+.ml5 {
+
+  font-weight: 300;
+  font-size: 120px;
+  color: #402d2d;
+}
+
+.ml5 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+  line-height: 1em;
+}
+
+.ml5 .line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 3px;
+  width: 100%;
+  background-color: #402d2d;
+  transform-origin: 0.5 0;
+}
+
+.ml5 .ampersand {
+  font-family: Baskerville, "EB Garamond", serif;
+  font-style: italic;
+  font-weight: 400;
+  width: 1em;
+  margin-right: -0.1em;
+  margin-left: -0.1em;
+}
+
+.ml5 .letters {
+  display: inline-block;
+  opacity: 0;
+}

@@ -1,0 +1,20 @@
+.app-skills{
+    margin-top: 50px;
+    margin-bottom: 100px;    
+    background-color:"#1A1A1A";
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+.app-skills-item span{
+    color: #6740B3;
+    display: block;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    line-height: normal;
+}
+
+.app-skills-item img{
+    width: 80%;
+}

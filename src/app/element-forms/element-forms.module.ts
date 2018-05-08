@@ -1,0 +1,21 @@
+import { NgModule } from '@angular/core';
+import { CommonModule, NgClass } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+
+import { WeatherService } from '../weatherApi/weather.service';
+import { ElementFormsComponent } from './element-forms.component';
+import { ElementFormsService } from './element-forms.service';
+
+
+
+@NgModule({
+    imports: [ CommonModule, FormsModule ],
+    declarations: [ ElementFormsComponent ],
+    exports: [ ElementFormsComponent ],
+    providers: [ ElementFormsService, WeatherService ]
+})
+export class ElementFormsModule {
+
+}
+

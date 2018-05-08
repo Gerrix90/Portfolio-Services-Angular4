@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  
+  <div class=" mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header app-nav-link">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <img class="app-office-img-profil" src="{{photoUrl}}" alt="Image profil : {{pseudo}}"> 
+        <span class="mdl-layout-title">Bienvenue <span>{{pseudo}}</span></span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" (click)="logout()">Se déconnecter</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <span class="mdl-layout-title">Title</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" (click)="logout()">Se déconnecter</a>
+      </nav>
+    </div>
+  </div>  
+  <app-element-forms></app-element-forms>
+</div>

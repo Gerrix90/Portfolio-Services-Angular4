@@ -1,0 +1,31 @@
+
+  <div class=" mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header app-nav-link" >
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <img src="assets/images/app-nav-logo.png" alt="Logo" width="50px">
+        <span class="mdl-layout-title">drien Leteinturier</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" (click)="login()">Services</a>
+          <a class="mdl-navigation__link" href="#projects">Projects</a>
+          <a class="mdl-navigation__link" href="#jobs">Job Expériences</a>
+          <a class="mdl-navigation__link" href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <span class="mdl-layout-title">Title</span>
+      <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" (click)="login()">Services</a>
+          <a class="mdl-navigation__link" href="#projects">Projects</a>
+          <a class="mdl-navigation__link" href="#jobs">Job Expériences</a>
+          <a class="mdl-navigation__link" href="#contact">Contact</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content"><!-- Your content goes here --></div>
+    </main>
+  </div>  

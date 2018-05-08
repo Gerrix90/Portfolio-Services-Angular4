@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Structure */
+.container-fluid{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    
+}
+body{
+    background-color: #1a1a1a ;
+}
+
+@media (max-width: 797px) {
+    body { 
+        background-color: #1A1A1A;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.row-no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
+/* Errors Syle */
+
+.has-error{
+    color: red;
+}
+
+.input-has-error,.input-has-error:focus{
+    border: 1px solid red;
+    box-shadow: none;    
+}
+
+.absolute-input-warning-ico{
+    margin-left: 5px;
+}
+

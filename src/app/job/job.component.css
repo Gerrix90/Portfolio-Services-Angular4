@@ -1,0 +1,128 @@
+.app-job{
+    margin-bottom: 30px;   
+}
+
+.app-job-content{
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 50px;    
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 3px;
+    font-family: 'Alfa Slab One', cursive;    
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+.app-job-content span:first-child{
+    font-size: 22px;
+    color: black;
+}
+
+.app-job-content p{
+    font-family: 'Open Sans', sans-serif;
+    opacity: 0;
+    text-align: left;
+}
+
+.app-job-content i{
+    font-size: 30px;
+    margin-right: 5px;
+    color: #333;
+}
+
+.app-job-content p > a > i:hover{
+    font-size: 30px;
+    color: black;
+}
+
+
+.app-job-content-p-displayed{
+    opacity: 1 !important;
+    transition: opacity 2000ms ease-out; 
+}
+
+.app-job-content-span{
+    color: white;
+}
+
+.app-job-content img{
+    opacity: 0;
+    width: 100%;
+}
+
+.app-job-img-displayed{
+    opacity: 1 !important;
+    width: 100%;    
+    transition: opacity 2000ms ease-out; 
+}
+.app-job-techno > i{
+    color: white;
+    font-size: 40px;
+}
+
+.close {
+    position: absolute;
+    display: none;
+    right: 36px;
+    top: 71px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+    z-index: 1;
+}
+.close-displayed{
+    display: block;
+}
+.close:hover {
+    opacity: 1;
+}
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.app-job-title-separate{
+    margin-top: 50px;
+}
+
+.app-job-title-separate span{
+    color: white;
+    font-size: 40px;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.hr-custom-title{
+    background-color: white;
+    height: 3px;
+    width: 270px;
+    margin-top: 13px;
+}
+
+.img-modal-absolute{
+    height: 150px;
+    width: 110px !important;
+    position: absolute;
+    top: 20px;
+    border-radius: 5px;
+    right: 100px;
+}
+
+.img-modal-full{
+    width: 100%;
+}

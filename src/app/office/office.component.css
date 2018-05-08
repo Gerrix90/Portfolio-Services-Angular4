@@ -1,0 +1,13 @@
+.app-office-img-profil{
+    width: 50px;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+app-element-form{
+    padding-top: 150px;
+}
+.mdl-layout-title > span{
+    font-size: 24px;
+    font-family: 'Righteous', cursive;
+}
+
