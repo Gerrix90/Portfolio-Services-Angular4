@@ -20,8 +20,8 @@ export class JobService {
     private data2:any;    
     private observable: Observable<any>;
     private observable2: Observable<any>;
-    private url: string = 'assets/json/jobs.json';
-    private url2: string = 'assets/json/prints.json';    
+    private url: string = '../assets/json/jobs.json';
+    private url2: string = '../assets/json/prints.json';    
 
     constructor(private _http: Http){ 
 
