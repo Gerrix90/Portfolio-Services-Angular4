@@ -9,7 +9,7 @@ import { JobService } from './job.service';
         trigger('displayElement',[
 
         state('none',style({
-            'height': '87px'
+            'height': '60px'
         })),
         state('displayOk',style({
             'height': '*',
