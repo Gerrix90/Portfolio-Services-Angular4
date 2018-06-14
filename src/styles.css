@@ -7,7 +7,8 @@
     
 }
 body{
-    background-color: #1a1a1a ;
+    background: url('assets/images/shattered-island.gif');
+    overflow-x: hidden;
 }
 
 @media (max-width: 797px) {
