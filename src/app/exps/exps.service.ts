@@ -16,7 +16,7 @@ export class ExpsService {
 
     private data:any;
     private observable: Observable<any>;
-    private url: string = 'assets/json/exps.json';
+    private url: string = '../assets/json/exps.json';
 
     constructor(private _http: Http){ 
 
