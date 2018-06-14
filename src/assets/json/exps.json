@@ -4,29 +4,13 @@
       "title": "Renault Garage de l'aéroport",
       "fonction": "Test",
       "description": "Test",
-      "time": "Test",
-      "logo": "assets/images/exps-renault.png",
-      "modalId": "expsModalRenault",
-      "leftPosition": "2%",
-      "imgContent": [
-         {
-            "src": ""
-         }
-      ]
+      "logo": "assets/images/exps-renault.png"
    },
    {
-      "id": 1,
-      "title": "Test",
+      "id": 0,
+      "title": "Vlis",
       "fonction": "Test",
       "description": "Test",
-      "time": "Test",
-      "logo": "assets/images/exps-renault.png",
-      "modalId": "",
-      "leftPosition": "12%",
-      "imgContent": [
-         {
-            "src": ""
-         }
-      ]
+      "logo": "assets/images/exps-vlis.png"
    }
 ]

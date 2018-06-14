@@ -6,7 +6,7 @@
       "description": "Élaboration d’un jeu vidéo en Javascript natif orienté objet au sein de la balise Canvas : Création de fonction constructeur, utilisation de differentes boucles (for,while), utilisation de condition (if,else,if-else).  Gestion des collisions, utilisations de sprites.",
       "stateAnim": "none",
       "iconGit": true,
-      "viewProjet": true,
+      "viewProjet": false,
       "link": "",
       "modalId": "modalJeuNinja",
       "gitLink": "https://github.com/Adrien-Leteinturier/NinjaCv",
@@ -70,7 +70,7 @@
    {
       "id": 3,
       "title": "TopTen-indoor",
-      "description": "Réalisation d'un site Wordpress pour une société de Foot 5. Stack Technique: Html, Css, Jquery. Mise en place du nom de domaine + hebergement + BDD. Elaboration du webdesign en suivant la maquette d'un graphiste.",
+      "description": "Réalisation d'un site Wordpress pour une société de Foot 5. Stack Technique: Html, Css, Jquery. Mise en place du nom de domaine + hebergement + BDD. Création et intégration des éléments graphiques",
       "stateAnim": "none",
       "iconGit": false,
       "viewProjet": true,      
