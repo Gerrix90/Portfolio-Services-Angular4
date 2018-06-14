@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { ElementFormsComponent } from './element-forms.component';
+import { ElementFormsService } from './element-forms.service';
+import { Http, ConnectionBackend, HttpModule } from '@angular/http';
+import { WeatherService } from '../weatherApi/weather.service'
 
 
 describe('ElementFormsComponent', () => {
@@ -9,9 +12,13 @@ describe('ElementFormsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports : [FormsModule],
+      imports : [FormsModule, HttpModule],
       declarations: [ ElementFormsComponent ],
-      providers: [ 
+      providers: [
+        ElementFormsService,
+        Http,
+        ConnectionBackend,
+        WeatherService
       ]
     })
     .compileComponents();

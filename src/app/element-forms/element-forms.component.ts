@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component , OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { NgModel } from '@angular/forms';
 import { ElementFormsService } from './element-forms.service';
 import { WeatherService } from '../weatherApi/weather.service';
@@ -18,13 +18,14 @@ export class ElementFormsComponent{
   wind:string;
   dataWeatherName:string;
   dataWeather= [];
+  formElement: NgForm;
+  messageError: any = false;
   
   
   constructor(public _ElementFormsService: ElementFormsService, public _WeatherService : WeatherService){}
   
   
   sendPositionInputs(form: NgForm){
-    console.log(form.value);
     this._WeatherService.getWeatherCurrent(form.value)
     .subscribe(
       res=>{
@@ -36,8 +37,12 @@ export class ElementFormsComponent{
         this.humidity = res.main.humidity;
         this.wind = res.wind.speed;
         this.dataWeather= [];
+        this.messageError = false;        
       },
-      err => console.error(err)
+      err =>  {
+        this.messageError = true;
+        console.log(err + 'erreur ');
+      } 
     )
   };
 
@@ -59,11 +64,15 @@ export class ElementFormsComponent{
               self.wind = res.wind.speed;
               self.dataWeather= [];
             },
-            err => console.error(err)
+            err => console.error(err + 'Error')
           )
         });
       }
   };
+
+  ngOnInit(form: NgForm) {
+    this.getLocation();
+  }
 
 
   

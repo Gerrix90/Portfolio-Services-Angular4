@@ -1,8 +1,6 @@
 .app-element-forms-container{
     background-color: white;
-    margin-top: 64px;
-    margin-bottom: 150px;
-    padding: 20px;
+    margin-top: 56px;
 }
 
 .app-element-forms-container .fa-compass{
@@ -14,7 +12,6 @@
 }
 .app-element-forms-weather-container{
     background-color: #6740B3;
-    border-radius: 3px;
     padding: 20px;
 }
 
@@ -36,8 +33,11 @@
 @media screen and (max-width: 767px) {
     .temperate-container{
         border: none !important;   
-        }
     }
+    .app-element-forms-weather-container{
+        margin-top: 10px;
+    }
+}
 
 
 .temperate-container{
@@ -56,6 +56,32 @@
 
 form button{
     margin-left: 10px;
+}
+
+.weather-title{
+    margin-top: 50px;
+    color: #6740B3;
+    font-size: 50px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 
+        1px 1px 1px #d3d3d3,
+        1px 2px 1px #d3d3d3,
+        1px 3px 1px #d3d3d3,
+        1px 4px 1px #d3d3d3,
+        1px 5px 1px #d3d3d3,
+        1px 6px 1px #d3d3d3,
+        1px 7px 1px #d3d3d3,
+        0 1px 1px rgba(68,68,68,.3),
+        0 5px 3px rgba(68,68,68,.2),
+        0 10px 4px rgba(68,68,68,.2),
+        0 15px 8px rgba(68,68,68,.2),
+        0 30px 10px rgba(68,68,68,.1);
+}
+
+.weather-error-msg{
+    color: red;
 }
 
 
