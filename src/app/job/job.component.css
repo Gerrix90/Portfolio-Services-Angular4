@@ -4,11 +4,11 @@
 
 .app-job-content{
     background-color: white;
-    padding: 30px;
+    padding: 20px;
     margin-bottom: 50px;    
     margin-top: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     text-align: center;
     border-radius: 3px;
     font-family: 'Alfa Slab One', cursive;    
@@ -29,13 +29,13 @@
     text-align: left;
 }
 
-.app-job-content i{
+.app-job-content-ico{
     font-size: 30px;
     margin-right: 5px;
     color: #333;
 }
 
-.app-job-content p > a > i:hover{
+.app-job-content-ico:hover{
     font-size: 30px;
     color: black;
 }
@@ -68,8 +68,9 @@
 .close {
     position: absolute;
     display: none;
-    right: 36px;
-    top: 71px;
+    margin-left: 5px;
+    right: 28px;
+    top: 63px;
     width: 32px;
     height: 32px;
     opacity: 0.3;
