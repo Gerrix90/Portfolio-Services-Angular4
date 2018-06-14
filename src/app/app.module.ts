@@ -17,6 +17,8 @@ import { ElementFormsService } from './element-forms/element-forms.service';
 import { officeModule } from './office/office.module';
 import { FooterComponent } from './footer/footer.component';
 import { PresentationService } from './presentation/presentation.service';
+import { ScrollBackButtonComponent } from './scroll-back-button/scroll-back-button.component';
+import { WindowElementService } from './windowElement/window-element.service'
 
 import { InputValidsDirective } from './inputValids/input-valids.directive';
 import { ExponentialStrengthPipe } from './exponentielle-strength.pipe';
@@ -38,7 +40,8 @@ import * as $ from 'jquery';
     OfficeComponent,
     InputValidsDirective,
     ExponentialStrengthPipe,
-    FooterComponent
+    FooterComponent,
+    ScrollBackButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ import * as $ from 'jquery';
     ReactiveFormsModule,
     ToastModule.forRoot()
   ],
-  providers:  [ AuthService, ElementFormsService, PresentationService ],
+  providers:  [ AuthService, ElementFormsService, PresentationService, WindowElementService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
