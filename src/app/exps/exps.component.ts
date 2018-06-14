@@ -20,11 +20,11 @@ export class ExpsComponent{
     ngOnInit() { 
 
         this._expsService.getExpFromAPIwithCache() 
-                         .subscribe( 
-                           res => this.exps = res,
-                           err => console.error(err.status)
-                           ); 
-        }
+            .subscribe( 
+                res => this.exps = res,
+                err => console.error(err.status)
+        ); 
+    }
 
 
 }
