@@ -1,23 +1,7 @@
 .app-exps-container{
     background-color: white;
-    padding-top: 300px;
-    margin-bottom: 60px;
-}
-
-.app-exps-line{
-    background-color: #6639b6;
-    padding: 5px;
-    position: relative;
-    bottom: 150px;
-}
-
-.app-exps-pastille{
-    background-color: black;
-    position: absolute;
-    padding: 5px;
-    border-radius: 60px;
-    top: 110px;
-    margin-left: 10px;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .app-exps-img-pastille{
@@ -25,6 +9,27 @@
     padding: 15px;
     border-radius: 40px;
 }
-.modal-exps{
-    
+.app-exps-title-separate span{
+    color: white;
+    font-size: 40px;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.hr-custom-title{
+    background-color: white;
+    height: 3px;
+    width: 270px;
+    margin-top: 13px;
+}
+
+.app-exps-container-logo-exps div{
+    display: inline-block;
+    margin: 5px;
+}
+.app-exps-badge{
+    background: url('../../assets/images/exps-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -340px;
 }
