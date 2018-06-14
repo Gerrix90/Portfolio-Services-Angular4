@@ -1,17 +1,29 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ElementFormsService } from '../element-forms/element-forms.service';
 import { FooterComponent } from './footer.component';
+import { FormBuilder } from '@angular/forms';
+import { Http, ConnectionBackend, HttpModule } from '@angular/http'; 
+import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
+import { PresentationService } from '../presentation/presentation.service';
+
 
 describe('HomeComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
-  let elementFormService = this.ElementFormsService;
-
-
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      imports: [ HttpModule ],
+      declarations: [ FooterComponent ],
+      providers: [
+        ElementFormsService,
+        Http,
+        ConnectionBackend,
+        FormBuilder,
+        ToastsManager,
+        ToastOptions,
+        PresentationService
+      ]
     })
     .compileComponents();
   }));
@@ -27,6 +39,6 @@ describe('HomeComponent', () => {
   });
 
   it('should ElementFormsService return value form', () => {
-    console.log(elementFormService);
+    console.log(ElementFormsService);
   })
 });
