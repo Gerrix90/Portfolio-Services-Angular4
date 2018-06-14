@@ -6,12 +6,13 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class PresentationService {
 
 
-  private url: string = 'assets/json/socials.json';
+  private url: string = '../assets/json/socials.json';
   private data: any;
   private observable: Observable<any>;
   
