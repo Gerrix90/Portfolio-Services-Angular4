@@ -1,11 +1,16 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { Http, ConnectionBackend, HttpModule } from '@angular/http'; 
 import { PresentationService } from './presentation.service';
 
 describe('PresentationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PresentationService]
+      imports: [ HttpModule ],
+      providers: [
+        PresentationService,
+        ConnectionBackend,
+        Http
+      ]
     });
   });
 
