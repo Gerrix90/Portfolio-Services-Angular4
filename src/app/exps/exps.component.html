@@ -1,40 +1,27 @@
 <div class="row">
-
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-        <div class="app-exps-container">
-
-            <div class="app-exps-content">
-
-                <div class="app-exps-line"></div>
-                <div class="app-exps-pastille" *ngFor="let exp of exps" data-toggle="modal" [attr.data-target]="'#' + exp.modalId" [ngStyle]="{ 'left':exp.leftPosition }">
-                    <img class="app-exps-img-pastille" src="{{exp.logo}}" alt="">
-                </div>
-
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="app-exps-title-separate">
+                <span>My profile</span>
+                <div class="hr-custom-title"></div>
             </div>
-
-
         </div>
-
     </div>
-    
-    
-    <div class="modal fade modal-exps animated flipInX" id="{{exp.modalId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngFor="let exp of exps">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                <h2>{{exp.title}}</h2>
-                <img src="{{exp.logo}}" alt="{{exp.title}}"/>
-                </div>
-                <div class="modal-body">
-                    <h3>{{exp.fonction}}</h3>
-                    <p>{{exp.description}}</p>
-                    <span>{{exp.time}}</span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                </div>
+    <div class="app-exps-container row">
+        <div class="row app-exps-badge">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="fr_FR" data-type="vertical" data-theme="dark" data-vanity="adrien-leteinturier"><a class="LI-simple-link" href='https://fr.linkedin.com/in/adrien-leteinturier?trk=profile-badge'>Adrien Leteinturier</a></div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 mt-10" *ngFor="let exp of exps">
+                <div class="app-exps-container-logo-exps text-center">
+                    <div>
+                        <img class="app-exps-img-pastille" src="{{exp.logo}}" alt="">
+                    </div>
+                </div>
+            </div>    
         </div>
     </div>
 </div>
+
