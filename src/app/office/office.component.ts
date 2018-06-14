@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
-
 import { AuthService } from '../providers/auth.service';
-
 import { Observable } from 'rxjs/Observable';
-
 import * as firebase from 'firebase/app';
-
 import { Http } from '@angular/http';
-
 import { WeatherService } from '../weatherApi/weather.service';
 
 @Component({
@@ -40,9 +34,7 @@ export class OfficeComponent implements OnInit {
       if(auth){
 
         this.pseudo = auth.displayName;
-  
         this.email = auth.email;
-  
         this.photoUrl = auth.photoURL;
 
       } else {
