@@ -30,7 +30,11 @@
       "scripts": [
         "../bower_components/material-design-lite/material.js",   
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../src/assets/blotterJs/blotter.min.js",
+        "../src/assets/blotterJs/channelSplitMaterial.js",
+        "../src/assets/blotterJs/slidingDoorMaterial.js",
+        "../src/assets/animText/code.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
