@@ -18,3 +18,9 @@
 .app-skills-item img{
     width: 80%;
 }
+
+@media screen and (max-width: 640px) {
+    .app-skills-item span{
+        font-size: 1.3em;
+    }
+  }
