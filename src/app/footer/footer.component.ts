@@ -2,8 +2,10 @@ import { Component, OnInit, ViewContainerRef, ElementRef } from '@angular/core';
 import { FormControl , FormBuilder,  Validators, FormGroup } from '@angular/forms';
 import { ElementFormsService } from '../element-forms/element-forms.service';
 import { PresentationService } from '../presentation/presentation.service';
+import { BlotterService } from '../blotterService/blotter.service'
 import { Socials } from '../presentation/socials';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { QuotesService } from '../quotesService/quotes.service';
 import account_validation_messages from '../config/error_inputs';
 import labels from '../config/labels';
 import { resolve } from 'q';
@@ -14,7 +16,15 @@ import { resolve } from 'q';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  constructor(public _elementFormService: ElementFormsService, private fb: FormBuilder, vcr: ViewContainerRef,public toastr: ToastsManager , public el : ElementRef, public _PresentationService: PresentationService) {
+  constructor(
+    public _elementFormService: ElementFormsService,
+    public fb: FormBuilder, vcr: ViewContainerRef,
+    public toastr: ToastsManager,
+    public el : ElementRef,
+    public _PresentationService: PresentationService,
+    public _BlotterService: BlotterService,
+    public _QuotesService: QuotesService
+  ) {
     this.toastr.setRootViewContainerRef(vcr);
   }
 
@@ -22,7 +32,27 @@ export class FooterComponent implements OnInit {
   validationConfig = account_validation_messages;
   labelInputs = labels.input[0];
   socials: Socials[];
+  quotesContent:any[];
+  quotesTitle:any[];
   
+  ngOnInit() {
+    this.createForms();
+    this._PresentationService.getSocialsFromAPIwithCache()
+    .subscribe( 
+        res => this.socials = res,
+        err => console.error(err.status)
+    ); 
+    this._BlotterService.mainBlotterSliding('Contactez-moi','Alfa Slab One, cursive',45,'#673AB7',8,0.25,true)
+
+    this._QuotesService.getQuotes() 
+      .subscribe( 
+        res => {
+          this.quotesContent = res[0]['content'].replace('<p>','').replace('</p>','').replace('<br />')
+          this.quotesTitle = res[0]['title']
+        },
+        err => console.error(err.status)
+      ); 
+  }
   
   postMailMessage = (formValue,accountDetailsForm) =>{
         if(this.accountDetailsForm.valid === true){
@@ -34,14 +64,6 @@ export class FooterComponent implements OnInit {
         }
   }
   
-  ngOnInit() {
-    this.createForms();
-    this._PresentationService.getSocialsFromAPIwithCache()
-    .subscribe( 
-        res => this.socials = res,
-        err => console.error(err.status)
-    ); 
-  }
 
   createForms = () =>{
     // user links form validations
