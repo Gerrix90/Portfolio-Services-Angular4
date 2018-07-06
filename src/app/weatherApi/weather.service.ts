@@ -11,15 +11,15 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class WeatherService {
 
-    private data1:any;
-    private data2:any;
-    private dataIcon:any;
-    private observable: Observable<any>;
-    constructor(private _http: Http){}
+    public data1:any;
+    public data2:any;
+    public dataIcon:any;
+    public observable: Observable<any>;
+    constructor(public _http: Http){}
 
     
     getWeatherCurrent(cityName): any{
-        return this._http.get("http://api.openweathermap.org/data/2.5/weather?q="+ cityName.subject +"&units=metric&appid="+environment.weatherApi.apiKeys) // appel virtuel comme vers un webservice // comme sur then(fn,fr) callback ok et non
+        return this._http.get("http://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&units=metric&appid="+environment.weatherApi.apiKeys) // appel virtuel comme vers un webservice // comme sur then(fn,fr) callback ok et non
                 .map(data1 => data1.json()) 
                 .do(x => console.log(x)) 
     }
