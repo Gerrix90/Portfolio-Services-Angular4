@@ -18,7 +18,14 @@ import { officeModule } from './office/office.module';
 import { FooterComponent } from './footer/footer.component';
 import { PresentationService } from './presentation/presentation.service';
 import { ScrollBackButtonComponent } from './scroll-back-button/scroll-back-button.component';
-import { WindowElementService } from './windowElement/window-element.service'
+import { WindowElementService } from './windowElement/window-element.service';
+import { BlotterService } from './blotterService/blotter.service';
+import { QuotesService } from './quotesService/quotes.service'
+import { NewsApiComponent } from './newsApi/news-api.component';
+import { NewsApiService } from './newsApi/news-api.service';
+import { ClickEnterDirective } from './ClickEnterDirective/click-enter.directive';
+import { ClickOutDirective } from './ClickOutDirective/click-out.directive';
+
 
 import { InputValidsDirective } from './inputValids/input-valids.directive';
 import { ExponentialStrengthPipe } from './exponentielle-strength.pipe';
@@ -41,7 +48,10 @@ import * as $ from 'jquery';
     InputValidsDirective,
     ExponentialStrengthPipe,
     FooterComponent,
-    ScrollBackButtonComponent
+    ScrollBackButtonComponent,
+    NewsApiComponent,
+    ClickEnterDirective,
+    ClickOutDirective
   ],
   imports: [
     BrowserModule,
@@ -62,7 +72,15 @@ import * as $ from 'jquery';
     ReactiveFormsModule,
     ToastModule.forRoot()
   ],
-  providers:  [ AuthService, ElementFormsService, PresentationService, WindowElementService ],
+  providers:  [ 
+    AuthService,
+    ElementFormsService,
+    PresentationService,
+    WindowElementService,
+    BlotterService,
+    QuotesService,
+    NewsApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
