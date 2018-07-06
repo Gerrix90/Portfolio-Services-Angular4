@@ -8,11 +8,11 @@ import { WeatherService } from '../weatherApi/weather.service';
 
 @Component({
 
-selector: 'office',
+  selector: 'office',
 
-templateUrl: './office.component.html',
+  templateUrl: './office.component.html',
 
-styleUrls: ['./office.component.css']
+  styleUrls: ['./office.component.css']
 
 })
 
@@ -26,37 +26,37 @@ export class OfficeComponent implements OnInit {
 
   photoUrl: String;
 
-  constructor(private authService: AuthService, private router: Router, private _http:Http, private _WeatherService : WeatherService) { 
+  constructor(public authService: AuthService, public router: Router, public _http: Http, public _WeatherService: WeatherService) {
+    
     this.user = this.authService.afAuth.authState;
 
-    this.user.subscribe( (auth) => {
+    this.user.subscribe((auth) => {
 
-      if(auth){
+      if (auth) {
 
         this.pseudo = auth.displayName;
         this.email = auth.email;
         this.photoUrl = auth.photoURL;
 
       } else {
-        
+
         return;
       }
 
     }
 
-    )};
+    )
+  };
 
   logout() {
 
     this.authService.logout();
-
-    this.router.navigate(['']);
 
   }
 
   ngOnInit() {
 
 
-   }
+  }
 
 }
