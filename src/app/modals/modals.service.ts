@@ -3,7 +3,7 @@ import { ModalComponent } from './modals.component';
 
 @Injectable()
 export class ModalService {
-  private modals: Array<ModalComponent>;
+  public modals: Array<ModalComponent>;
 
   constructor() {
     this.modals = [];
@@ -40,7 +40,7 @@ export class ModalService {
     }
   }
 
-  private findModal(modalId: string): ModalComponent {
+  public findModal(modalId: string): ModalComponent {
     for (const modal of this.modals) {
       if (modal.modalId === modalId) {
         return modal;
