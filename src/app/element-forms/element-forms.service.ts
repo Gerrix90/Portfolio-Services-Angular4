@@ -10,14 +10,14 @@ import { Http } from '@angular/http';
 @Injectable()
 export class ElementFormsService {
   
-  constructor(private _http: Http){}
+  constructor(public _http: Http){}
   
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   postUrl:string = 'http://localhost:3000/action';
 
-  private handleError(error: HttpErrorResponse) {
+  public handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);
