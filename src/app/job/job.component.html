@@ -1,10 +1,14 @@
 <div class="app-job">
     <div class="row">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <div class="app-job-title-separate">
-                    <span>Web Project</span>
-                    <div class="hr-custom-title"></div>
+                    <div class="rings">
+                        <h2>Web & Prints Projects</h2>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,15 +43,7 @@
         </div>          
     </div>
 
-    <div class="row">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="app-job-title-separate">
-                    <span>Print Project</span>
-                    <div class="hr-custom-title"></div>
-                </div>
-            </div>
-        </div>        
+    <div class="row">       
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let print of prints; trackBy let i=index">
             <div class="close" (click)="outDisplay2(print)" [ngClass]="{'close-displayed': print.stateAnim == 'displayOk'}"></div>
             <div class="app-job-content" (click)="display2(print)" [@displayElement]="print.stateAnim">
