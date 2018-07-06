@@ -37,7 +37,7 @@ export class JobComponent{
     prints: Print[];
     
 
-    constructor(private _jobService: JobService){ 
+    constructor(public _jobService: JobService){ 
     }
 
 
