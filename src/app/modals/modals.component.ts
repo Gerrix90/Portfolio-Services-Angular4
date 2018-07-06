@@ -16,7 +16,7 @@ export class ModalComponent implements OnInit {
     this.keyup(event);
   }
 
-  constructor(private modalService: ModalService) {
+  constructor(public modalService: ModalService) {
   }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class ModalComponent implements OnInit {
     this.modalService.close(this.modalId, checkBlocking);
   }
 
-  private keyup(event: KeyboardEvent): void {
+  public keyup(event: KeyboardEvent): void {
     if (event.keyCode === 27) {
       this.modalService.close(this.modalId, true);
     }
