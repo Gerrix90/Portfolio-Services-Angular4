@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
 
 import { WeatherService } from '../weatherApi/weather.service';
 import { ElementFormsComponent } from './element-forms.component';
