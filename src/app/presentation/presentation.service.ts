@@ -12,12 +12,12 @@ import 'rxjs/add/operator/toPromise';
 export class PresentationService {
 
 
-  private url: string = '../assets/json/socials.json';
-  private data: any;
-  private observable: Observable<any>;
+  public url: string = '../assets/json/socials.json';
+  public data: any;
+  public observable: Observable<any>;
   
   
-  constructor(private _http: Http) { }
+  constructor(public _http: Http) { }
 
     getSocialsFromAPIwithCache(){
       if(this.data){
