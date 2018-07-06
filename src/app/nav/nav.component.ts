@@ -10,15 +10,12 @@ import { AuthService } from '../providers/auth.service';
 })
 
 export class NavComponent implements OnInit{
-    constructor(public authService: AuthService, private router: Router) { }
+    
+    constructor(public authService: AuthService, public router: Router) { }
 
     login() {
 
-        this.authService.loginWithGoogle().then((data) => {
-        
-        this.router.navigate(['login']);
-        
-        });
+        this.authService.loginWithGoogle();
         
     }
         
