@@ -14,6 +14,9 @@ export const environment = {
     messagingSenderId: "537650330182"
   },
   weatherApi: {
-    apiKeys: '0bb0823b57d8a37641653260649bdd97'
+    apiKeys: '28de745d768ffc16e78ffdd0c98c0779'
+  },
+  newsApi: {
+    apiKeys: '38ebc5051f664a78bbfa50c9d9ceb5c2'
   }
 };
