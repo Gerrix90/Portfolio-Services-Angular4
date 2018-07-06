@@ -1,4 +1,4 @@
-import { Component, ApplicationRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { PresentationService } from './presentation.service';
 import { Socials } from './socials';
@@ -18,7 +18,7 @@ export class PresComponent implements OnInit{
 
     socials: Socials[];
 
-    constructor(private _PresentationService : PresentationService){}
+    constructor(public _PresentationService : PresentationService){}
 
     ngOnInit(){
 
