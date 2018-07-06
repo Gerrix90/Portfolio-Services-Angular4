@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <title>SiteWeb</title>
   <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Righteous|Open+Sans:300" rel="stylesheet">
   <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -17,8 +16,10 @@
   -->
 </head>
 <body>
-  <app-root></app-root>
-  <router-outlet></router-outlet>
+  <div class="main-container">
+    <app-root></app-root>
+    <router-outlet></router-outlet>
+  </div>
 </body>
 </html>
 
