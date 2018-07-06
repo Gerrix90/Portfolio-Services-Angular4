@@ -19,7 +19,7 @@ h2{
     padding: 20px;
 }
 .app-footer-section-center-socials{
-    background: black;
+    background: url('../../assets/images/shattered-island.gif');
 }
 .app-footer-section-center-socials ul{
     text-align: center;
@@ -46,4 +46,8 @@ h2{
     transform: scale(1.5);
     color: #673AB6;
 }
+.app-footer-section-right-map{
+    margin-top: 10px;
+}
+
 
