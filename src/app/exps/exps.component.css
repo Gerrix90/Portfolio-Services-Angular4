@@ -1,7 +1,9 @@
 .app-exps-container{
     background-color: white;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
     margin-top: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .app-exps-img-pastille{
@@ -9,10 +11,9 @@
     padding: 15px;
     border-radius: 40px;
 }
-.app-exps-title-separate span{
+.app-exps-title-separate h2{
     color: white;
     font-size: 40px;
-    margin-left: 30px;
     font-weight: bold;
 }
 
@@ -25,11 +26,26 @@
 
 .app-exps-container-logo-exps div{
     display: inline-block;
-    margin: 5px;
+    margin: 20px 5px 5px 5px;
 }
-.app-exps-badge{
-    background: url('../../assets/images/exps-bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0px -340px;
+.app-exps-container-logo-exps p{
+    font-family: 'Alfa Slab One', cursive;
+    color:#673AB7;
+    font-size: 18px;
+    margin-top: 10px;
 }
+.app-exps-container-logo-exps p:last-child{
+    font-size: 14px;
+    color:#c9c9c9;
+}
+@media screen and (max-width: 640px) {
+    .app-exps-container-logo-exps p{
+        font-size: 12px;
+    }
+    .app-exps-container-logo-exps p:last-child{
+        font-size: 12px;
+    }
+    .app-exps-title-separate h2{
+        font-size: 15px;
+    }
+  }
