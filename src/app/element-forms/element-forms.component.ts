@@ -1,6 +1,5 @@
 import { Component , OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NgModel } from '@angular/forms';
 import { ElementFormsService } from './element-forms.service';
 import { WeatherService } from '../weatherApi/weather.service';
 
@@ -26,7 +25,8 @@ export class ElementFormsComponent{
   
   
   sendPositionInputs(form: NgForm){
-    this._WeatherService.getWeatherCurrent(form.value)
+    console.log(form.value.msgSubject)
+    this._WeatherService.getWeatherCurrent(form.value.msgSubject)
     .subscribe(
       res=>{
         this.dataWeather = res;
@@ -70,7 +70,7 @@ export class ElementFormsComponent{
       }
   };
 
-  ngOnInit(form: NgForm) {
+  ngOnInit() {
     this.getLocation();
   }
 
