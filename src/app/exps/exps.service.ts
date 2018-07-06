@@ -14,11 +14,11 @@ import { Exp } from './exps';
 
 export class ExpsService {
 
-    private data:any;
-    private observable: Observable<any>;
-    private url: string = '../assets/json/exps.json';
+    public data:any;
+    public observable: Observable<any>;
+    public url: string = '../assets/json/exps.json';
 
-    constructor(private _http: Http){ 
+    constructor(public _http: Http){ 
 
     }
 
