@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, ElementRef, Input } from '@angular/core';
-import { WindowElementService } from '../windowElement/window-element.service'
+import { WindowElementService } from '../windowElement/window-element.service';
 
 @Component({
   selector: 'app-scroll-back-button',
@@ -14,11 +14,11 @@ export class ScrollBackButtonComponent implements OnInit {
 
   constructor(public _elementRef:ElementRef, public _WindowElementService : WindowElementService) {}
 
-  private colorButton() { 
+  public colorButton() { 
     this._elementRef.nativeElement.childNodes["0"].firstElementChild.style.backgroundColor = this.bgColorButton;
   } 
 
-  private windowScrollDisplay() {
+  public windowScrollDisplay() {
     var self = this;
     this.window.addEventListener('scroll',function(){
       if(this.window.scrollY > 0){
@@ -29,7 +29,7 @@ export class ScrollBackButtonComponent implements OnInit {
     });
   }
 
-  private scrollTop(){
+  public scrollTop(){
     this.window.scrollTo(0,0);
   }
   
