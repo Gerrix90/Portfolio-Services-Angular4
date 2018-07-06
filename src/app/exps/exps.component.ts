@@ -1,4 +1,4 @@
-import { Component, trigger, state, animate, style, transition, keyframes } from '@angular/core';
+import { Component } from '@angular/core';
 import { Exp } from './exps';
 import { ExpsService } from './exps.service';
 
@@ -14,7 +14,7 @@ import { ExpsService } from './exps.service';
 export class ExpsComponent{
     exps: Exp[];
 
-    constructor(private _expsService: ExpsService){ 
+    constructor(public _expsService: ExpsService){ 
     }
 
     ngOnInit() { 
