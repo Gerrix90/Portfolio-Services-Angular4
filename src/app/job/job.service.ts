@@ -16,14 +16,14 @@ import { Print } from './print';
 
 export class JobService {
 
-    private data:any;
-    private data2:any;    
-    private observable: Observable<any>;
-    private observable2: Observable<any>;
-    private url: string = '../assets/json/jobs.json';
-    private url2: string = '../assets/json/prints.json';    
+    public data:any;
+    public data2:any;    
+    public observable: Observable<any>;
+    public observable2: Observable<any>;
+    public url: string = '../assets/json/jobs.json';
+    public url2: string = '../assets/json/prints.json';    
 
-    constructor(private _http: Http){ 
+    constructor(public _http: Http){ 
 
     }
 
