@@ -1,6 +1,6 @@
 <div class="row app-footer-container" >
     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 app-footer-section-left">
-        <h2>Contactez moi</h2>
+        <div id="blotter"></div>
         <form [formGroup]="accountDetailsForm" novalidate (ngSubmit)="postMailMessage(accountDetailsForm.value)" novalidate>
             <div class="form-group">
                 <label for="email">{{labelInputs.email}}</label>
@@ -41,7 +41,8 @@
     </div>
     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 app-footer-section-right">
         <div class="app-footer-section-right-map">
-            <iframe src="" frameborder="0"></iframe>
+            <h2 class="opening text-center">{{quotesContent}}</h2>
+            <cite>{{quotesTitle}}</cite>
         </div>
     </div>
 </div> 
