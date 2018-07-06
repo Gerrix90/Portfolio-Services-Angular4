@@ -20,7 +20,7 @@ export class InputValidsDirective {
     this.highlight(null);
   }
   
-  private highlight(color: string) { 
+  public highlight(color: string) { 
     this.el.nativeElement.style.backgroundColor = color;
   } */
    
