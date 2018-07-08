@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
                     <div class="app-news-img-container">
-                        <img *ngIf="imgNews" src="{{imgNews === null ? noImg : imgNews}}" [ngClass]="imgClass ? 'fadeInLeft animated' : ' '">
+                        <img *ngIf="imgNews" src="{{imgNews == null ? noImg : imgNews}}" [ngClass]="imgClass ? 'fadeInLeft animated' : ' '">
                     </div>
                     <div class="linkNewsApi">
                         <a href=""></a>
