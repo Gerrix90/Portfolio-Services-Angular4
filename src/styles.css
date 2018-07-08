@@ -22,6 +22,30 @@ body{
     padding-right: 0 !important;
 }
 
+.app-title h1{
+    font-family: 'Righteous', cursive;
+    letter-spacing: 0px;
+    color: white;
+    font-size: 30px;
+}
+.app-title span:first-child{
+    font-family: 'Alfa Slab One', cursive;
+    -webkit-transform: rotate(20deg);
+    display: inline-block;
+    font-size: 46px;
+    transform: rotate(6deg);
+    color: rgb(255,64,129);
+}
+
+.app-title span:last-child{
+    font-family: 'Alfa Slab One', cursive;
+    -webkit-transform: rotate(-4deg);
+    display: inline-block;
+    font-size: 46px;
+    transform: rotate(-4deg);
+    color: rgb(255,64,129);
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
