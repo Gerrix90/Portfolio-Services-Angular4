@@ -22,8 +22,7 @@
     padding: 10px;
     margin-bottom: 5px;
     transition: 1s;
-}
-.app-news-text-container{
+    margin-right: 17px;
     cursor: pointer;
 }
 .app-news-text-container h3{
