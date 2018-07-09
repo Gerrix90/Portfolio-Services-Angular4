@@ -16,7 +16,7 @@ export class AuthService {
 
   loginWithGoogle() {
 
-    return this.afAuth.auth.signInWithPopup(this.provider);
+    return this.afAuth.auth.signInWithRedirect(this.provider);
 
   }
 
