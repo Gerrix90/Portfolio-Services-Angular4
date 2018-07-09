@@ -1,19 +1,23 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
 const bodyParser = require('body-parser');
 const http = require('http');
-
-
-const api = require('./routes/api');
+var mailer = require('nodemailer');
 const app = express();
-const router = express.Router();
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 
+
+var smtpTransport = mailer.createTransport("SMTP",{
+  service: "Gmail",
+  auth: {
+    user: 'adrienleteinturier@gmail.com',
+    pass: ''
+  }
+});
 
 
 app.get('*', function(req, res, next) {
@@ -21,16 +25,32 @@ app.get('*', function(req, res, next) {
 });
 
 app.post('/action',function(req,res,next){
-    console.log('ici' + req.body.name);
-})
+  var mailOptions = {
+    from: req.body.email,
+    to: 'adrienleteinturier@gmail.com',
+    subject: 'Message de ' + req.body.username +', Adrien Leteinturier site Web',
+    text: req.body.message,
+    html: '<p>Message de'+ req.body.username +'</p><b>' + req.body.message + '</b>'
+  };
+  smtpTransport.sendMail(mailOptions, function(error, response){
+    if(error){
+      console.log("Erreur lors de l'envoie du mail!");
+      console.log(error);
+    }else{
+      console.log("Mail envoyé avec succès!")
+    }
+    smtpTransport.close();
+  });
+});
 
 
-
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '80';
 app.set('port',port);
 
 const server = http.createServer(app);
-server.listen(port, () => console.log(`Running Baby`))
+server.listen(port,function(){
+  console.log('Running Baby');
+});
 
 
 module.exports = app;
