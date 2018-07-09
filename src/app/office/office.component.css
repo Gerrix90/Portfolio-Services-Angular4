@@ -6,8 +6,13 @@
 app-element-form{
     padding-top: 150px;
 }
-.mdl-layout-title > span{
+.mdl-layout-title span:last-child{
     font-size: 24px;
     font-family: 'Righteous', cursive;
 }
 
+@media screen and (max-width: 640px) {
+    .mdl-layout-title span:first-child{
+        display: none;
+    }
+}
