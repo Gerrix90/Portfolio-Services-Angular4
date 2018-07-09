@@ -22,7 +22,7 @@
     padding: 10px;
     margin-bottom: 5px;
     transition: 1s;
-    margin-right: 17px;
+    margin-right: 5px;
     cursor: pointer;
 }
 .app-news-text-container h3{
@@ -86,6 +86,9 @@
     }
     .app-news-img-container{
         margin-bottom: 10px;
+    }
+    .app-news-text{
+        height: 300px;
     }
 
 }

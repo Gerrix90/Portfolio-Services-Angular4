@@ -35,7 +35,6 @@ export class NewsApiComponent implements OnInit {
           this.authorNews = res.articles[0].author;
           this.authorNewsLink = res.articles[0].url;
           this.srcName = res.articles[0].source.name;
-          this.imgClass = true;
         },
         err => {
           console.log(err + 'erreur ');
