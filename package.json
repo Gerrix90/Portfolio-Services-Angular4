@@ -40,6 +40,7 @@
     "karma-jasmine": "^1.1.1",
     "morgan": "^1.9.0",
     "ng2-toastr": "^4.1.2",
+    "nodemailer": "^0.7.1",
     "open-weather-icons": "0.0.7",
     "rxjs": "^5.5.6",
     "serve-favicon": "^2.4.5",
