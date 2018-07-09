@@ -15,7 +15,7 @@ export class ElementFormsService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  postUrl:string = 'http://localhost:3000/action';
+  postUrl:string = 'http://adrienleteinturier.ddns.net/action';
 
   public handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

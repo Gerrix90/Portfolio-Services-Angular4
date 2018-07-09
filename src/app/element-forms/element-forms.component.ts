@@ -19,7 +19,7 @@ export class ElementFormsComponent{
   dataWeather= [];
   formElement: NgForm;
   messageError: any = false;
-  
+  defaultPosition:string = "France";
   
   constructor(public _ElementFormsService: ElementFormsService, public _WeatherService : WeatherService){}
   
@@ -46,6 +46,27 @@ export class ElementFormsComponent{
     )
   };
 
+  postionByDefault(){
+    this._WeatherService.getWeatherCurrent("France")
+    .subscribe(
+      res=>{
+        this.dataWeather = res;
+        this.dataWeatherName = res.name; 
+        this.iconUrl = res.weather[0].icon;
+        this.maxTemp = res.main.temp_max;
+        this.minTemp = res.main.temp_min;
+        this.humidity = res.main.humidity;
+        this.wind = res.wind.speed;
+        this.dataWeather= [];
+        this.messageError = false;        
+      },
+      err =>  {
+        this.messageError = true;
+        console.log(err + 'erreur ');
+      } 
+    )    
+  }
+
 
   getLocation() {
       if (navigator.geolocation) {
@@ -71,7 +92,7 @@ export class ElementFormsComponent{
   };
 
   ngOnInit() {
-    this.getLocation();
+    this.postionByDefault()
   }
 
 
