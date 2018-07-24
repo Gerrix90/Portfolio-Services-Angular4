@@ -43,7 +43,7 @@
     background-color: #6740B3;
 }
 .app-news-content-container a{
-    color: #ccc;
+    color: rgb(255,64,129);
     font-size: 14px;
     transition: 2s;
 }
