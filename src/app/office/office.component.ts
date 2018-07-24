@@ -29,34 +29,26 @@ export class OfficeComponent implements OnInit {
   constructor(public authService: AuthService, public router: Router, public _http: Http, public _WeatherService: WeatherService) {
     
     this.user = this.authService.afAuth.authState;
-
     this.user.subscribe((auth) => {
-
       if (auth) {
-
         this.pseudo = auth.displayName;
         this.email = auth.email;
         this.photoUrl = auth.photoURL;
-
       } else {
-
         return;
       }
-
     }
-
     )
   };
 
   logout() {
 
     this.authService.logout();
+    window.location.href = '/';
 
   }
 
   ngOnInit() {
-
-
   }
 
 }
