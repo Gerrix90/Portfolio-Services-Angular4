@@ -1,15 +1,23 @@
-      <div [ngClass]="{'closed': !isOpen}">
-        <div class="modal-overlay" (click)="close(true)"></div>
-
-        <div class="modal">
-          <div class="title" *ngIf="modalTitle">
-            <span class="title-text">{{ modalTitle }}</span>
-            <span class="right-align" (click)="close(true)"><i class="material-icons md-24">clear</i></span>
+<div *ngFor="let printModal of arrayModal">
+  <div class="modal fade" id="{{printModal.modalId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header text-center">
+                  <b>{{printModal.title}}</b>
+              </div>
+              <div class="modal-body">
+              </div>
+              <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <img class="img-modal-full" src="{{printModal.img1}}" alt="La fete de la moto">
+                      <img class="img-modal-absolute" src="{{printModal.img2}}" alt="La fete de la moto">
+                      <img class="img-modal-absolute" src="{{printModal.img3}}" alt="La fete de la moto" style="top:200px;">                        
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+              </div>
           </div>
-
-          <div class="body">
-            <ng-content></ng-content>
-          </div>
-        </div>
       </div>
-      
+  </div>    
+</div>

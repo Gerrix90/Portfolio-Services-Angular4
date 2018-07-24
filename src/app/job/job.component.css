@@ -69,7 +69,7 @@
     position: absolute;
     display: none;
     margin-left: 5px;
-    right: 28px;
+    right: 15px;
     top: 37px;
     width: 32px;
     height: 32px;
@@ -82,20 +82,8 @@
 .close:hover {
     opacity: 1;
 }
-.close:before, .close:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 33px;
-    width: 2px;
-    background-color: #333;
-}
-.close:before {
-    transform: rotate(45deg);
-}
-.close:after {
-    transform: rotate(-45deg);
-}
+
+
 
 .app-job-title-separate{
     margin-top: 50px;
@@ -113,20 +101,6 @@
     width: 270px;
     margin-top: 13px;
 }
-
-.img-modal-absolute{
-    height: 150px;
-    width: 110px !important;
-    position: absolute;
-    top: 20px;
-    border-radius: 5px;
-    right: 100px;
-}
-
-.img-modal-full{
-    width: 100%;
-}
-
 
 @media screen and (max-width: 640px) {
     .app-job-title-separate h2{

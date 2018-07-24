@@ -13,7 +13,9 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let job of jobs; trackBy let i=index">
-            <div class="close" (click)="outDisplay(job)" [ngClass]="{'close-displayed': job.stateAnim == 'displayOk'}"></div>
+            <div class="close" (click)="outDisplay(job)" [ngClass]="{'close-displayed': job.stateAnim == 'displayOk'}">
+                <i class="fas fa-times"></i>
+            </div>
             <div class="app-job-content" (click)="display(job)" [@displayElement]="job.stateAnim">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -45,7 +47,9 @@
 
     <div class="row">       
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let print of prints; trackBy let i=index">
-            <div class="close" (click)="outDisplay2(print)" [ngClass]="{'close-displayed': print.stateAnim == 'displayOk'}"></div>
+            <div class="close" (click)="outDisplay2(print)" [ngClass]="{'close-displayed': print.stateAnim == 'displayOk'}">
+                <i class="fas fa-times"></i>
+            </div>
             <div class="app-job-content" (click)="display2(print)" [@displayElement]="print.stateAnim">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -109,29 +113,4 @@
     </div>
     </div>
 
-
-<!-- Modal print -->
-<div *ngFor="let printModal of prints;">
-    <div class="modal fade" id="{{printModal.modalId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <b>{{printModal.title}}</b>
-                </div>
-                <div class="modal-body">
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img class="img-modal-full" src="{{printModal.img1}}" alt="La fete de la moto">
-                        <img class="img-modal-absolute" src="{{printModal.img2}}" alt="La fete de la moto">
-                        <img class="img-modal-absolute" src="{{printModal.img3}}" alt="La fete de la moto" style="top:200px;">                        
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                </div>
-            </div>
-        </div>
-    </div>    
-</div>
-
+<app-modal [arrayModal]="prints"></app-modal>
