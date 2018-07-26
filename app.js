@@ -14,8 +14,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 var smtpTransport = mailer.createTransport("SMTP",{
   service: "Gmail",
   auth: {
-    user: 'adrienleteinturier@gmail.com',
-    pass: ''
+    user: process.env.NODEMAILER_MAIL,
+    pass: process.env.NODEMAILER_PASS
   }
 });
 
