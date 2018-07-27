@@ -19,7 +19,7 @@ export class WeatherService {
 
     
     getWeatherCurrent(cityName): any{
-        return this._http.get("https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&units=metric&appid="+environment.weatherApi.apiKeys) // appel virtuel comme vers un webservice // comme sur then(fn,fr) callback ok et non
+        return this._http.get("http://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&units=metric&appid="+environment.weatherApi.apiKeys) // appel virtuel comme vers un webservice // comme sur then(fn,fr) callback ok et non
                 .map(data1 => data1.json()) 
                 .do(x => console.log(x)) 
     }

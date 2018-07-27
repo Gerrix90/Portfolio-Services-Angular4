@@ -2500,7 +2500,7 @@ var WeatherService = (function () {
         this._http = _http;
     }
     WeatherService.prototype.getWeatherCurrent = function (cityName) {
-        return this._http.get("https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric&appid=" + __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].weatherApi.apiKeys) // appel virtuel comme vers un webservice // comme sur then(fn,fr) callback ok et non
+        return this._http.get("http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric&appid=" + __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].weatherApi.apiKeys) // appel virtuel comme vers un webservice // comme sur then(fn,fr) callback ok et non
             .map(function (data1) { return data1.json(); })
             .do(function (x) { return console.log(x); });
     };
