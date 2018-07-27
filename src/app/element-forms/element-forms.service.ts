@@ -15,7 +15,7 @@ export class ElementFormsService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  postUrl:string = 'https://adrienleteinturier.herokuapps.com/action';
+  postUrl:string = 'https://adrienleteinturier.herokuapp.com/action';
 
   public handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

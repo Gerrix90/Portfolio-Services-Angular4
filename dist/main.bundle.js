@@ -692,7 +692,7 @@ var ElementFormsService = (function () {
         this.httpOptions = {
             headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpHeaders */]({ 'Content-Type': 'application/json' })
         };
-        this.postUrl = 'https://adrienleteinturier.herokuapps.com/action';
+        this.postUrl = 'https://adrienleteinturier.herokuapp.com/action';
     }
     ElementFormsService.prototype.handleError = function (error) {
         if (error.error instanceof ErrorEvent) {
