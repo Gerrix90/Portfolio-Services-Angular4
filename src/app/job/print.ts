@@ -3,12 +3,10 @@ id: number;
 title: string;
 description: string;
 logo: string;
-img1: string;
-img2: string;
-img3: string;
-img4: string;
+img:string[];
 viewProjet:boolean;
 stateAnim: string;
 modalId: string;
+carouselActive:boolean;
 [imgContent: number]: string;
 }
