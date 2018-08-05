@@ -8,10 +8,34 @@
        "modalId": "modalMotoParty",
        "viewProjet":true,
        "logo": "",
-       "img1": "../assets/images/feteMoto.jpg",
-       "img2":"../assets/images/declin1-moto.jpg",
-       "img3":"../assets/images/declin2-moto.jpg",
-       "img4":"",
+       "img":[
+        "../assets/images/feteMoto.jpg",
+        "../assets/images/declin1-moto.jpg",
+        "../assets/images/declin2-moto.jpg"
+       ],
+       "carouselActive":false,
+       "imgContent": [
+          {
+             "classIcon1": "devicon-photoshop-plain",
+             "classIcon2": "devicon-illustrator-plain"
+             
+          }
+       ]
+    },
+    {
+       "id": 1,
+       "title": "Cafee - Marque de café",
+       "description": "Création d'une marque de café avec plusieurs declinaisons graphiques, deisgn mobile, goodies.Elements réalisé avec les outils: Photoshop, Illustrator et Indesign",
+       "stateAnim": "none",
+       "modalId": "modalCafee",
+       "viewProjet":true,
+       "logo": "",
+       "img":[
+        "../assets/images/Ux-cafee-final.jpg",
+        "../assets/images/Cafee.jpg",
+        "../assets/images/tshirtcafee.jpg"
+       ],
+       "carouselActive":true,
        "imgContent": [
           {
              "classIcon1": "devicon-photoshop-plain",
@@ -22,4 +46,6 @@
     }
  ]
  
+ 
+
  
