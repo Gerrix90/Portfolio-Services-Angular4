@@ -21,7 +21,7 @@ var smtpTransport = mailer.createTransport("SMTP",{
 
 
 app.get('*', function(req, res, next) {
-  res.sendFile(path.join(__dirname, 'src/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 app.post('/action',function(req,res,next){
