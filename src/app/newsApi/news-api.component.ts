@@ -20,31 +20,32 @@ export class NewsApiComponent implements OnInit {
   
   public element_: ElementRef;
   public srcData:newsApi;
+  public selected:newsApi;
   public imgNews:string;
   public noImg: string = '../../assets/images/dummy_600x400_ffffff_cccccc_no-image-.png';
   public authorNews:string;
-
+  public authorNewsLink: string;
+  public contentNews:string;
+  public selectedButton:any;
+  public button=[
+    {TITLE:'Générale',TYPE:'general'},
+    {TITLE:'Divertissement',TYPE:'entertainment'},
+    {TITLE:'Santé',TYPE:'health'},
+    {TITLE:'Sciences',TYPE:'science'},
+    {TITLE:'Sports',TYPE:'sports'},
+    {TITLE:'La technologie',TYPE:'technology'},
+  ];
+  
   ngOnInit() {
-    this.sendNewsDataGeneral();
+    this.sendSrc('general');
   }
 
-  sendNewsDataGeneral() {
-    this._NewsApiService.getNewsGeneral()
+  sendSrc(categories) {
+    this._NewsApiService.getNewsSrc(categories)
       .subscribe(
         res => {
-          this.srcData = res;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  sendOtherSrc(categories) {
-    this._NewsApiService.getNewsOthersSrc(categories)
-      .subscribe(
-        res => {
-          this.srcData = res;
+          this.srcData = res.articles;
+          this.selectedSrcData(0);
         },
         err => {
           console.log(err + 'erreur ');
@@ -53,12 +54,23 @@ export class NewsApiComponent implements OnInit {
   };
 
   selectedSrcData(i){
-    this.imgNews = this.srcData.articles[i].urlToImage;
-    this.authorNews = this.srcData.articles[i].source.name;
+      this.imgNews = this.srcData[i].urlToImage;
+      this.authorNews = this.srcData[i].source.name;
+      this.contentNews= this.srcData[i].title;
+      this.authorNewsLink = this.srcData[i].url;
   }
 
-  activateClass(subModule){
-    subModule.active = !subModule.active;    
-  }
+  select(item) {
+      this.selected = item; 
+  };
+  isActive(item) {
+      return this.selected === item;
+  };
+  selectButton(item) {
+      this.selectedButton = item; 
+  };
+  isActiveButton(item) {
+      return this.selectedButton === item;
+  };
 
 }
