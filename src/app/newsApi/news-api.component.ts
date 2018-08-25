@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer } from '@angular/core';
 import { NewsApiService } from './news-api.service';
+import {newsApi} from './newsApi';
 import * as $ from 'jquery';
 
 declare var anime: any;
@@ -13,142 +14,63 @@ declare var $ :any;
 })
 export class NewsApiComponent implements OnInit {
 
-  dataNews = [];
-  imgNews: string;
-  contentNews: string;
-  imgClass: boolean = false;
-  authorNews: string;
-  authorNewsLink: string;
-  srcName: string;
-  noImg: string = '../../assets/images/dummy_600x400_ffffff_cccccc_no-image-.png';
-
-  constructor(public _NewsApiService: NewsApiService, public myElement: ElementRef) { }
-
-  sendNewsDataGeneral() {
-    this._NewsApiService.getNewsGeneral()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  sendNewsDataEntertainment() {
-    this._NewsApiService.getNewsEntertainment()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  sendNewsDataHealth() {
-    this._NewsApiService.getNewsHealth()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  sendNewsDataScience() {
-    this._NewsApiService.getNewsScience()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  sendNewsDataSports() {
-    this._NewsApiService.getNewsSports()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  sendNewsDataTechnology() {
-    this._NewsApiService.getNewsTechnology()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  selectedSrcData(element) {
-    this.imgNews = this.dataNews[element].urlToImage;
-    this.contentNews = this.dataNews[element].description;
-    this.authorNews = this.dataNews[element].author;
-    this.authorNewsLink = this.dataNews[element].url;
-    this.srcName = this.dataNews[element].source.name;
-    this.imgClass = true;
-  }
 
   
+  constructor(public _NewsApiService: NewsApiService, public myElement: ElementRef, private renderer: Renderer) { }
+  
+  public element_: ElementRef;
+  public srcData:newsApi;
+  public selected:newsApi;
+  public imgNews:string;
+  public noImg: string = '../../assets/images/dummy_600x400_ffffff_cccccc_no-image-.png';
+  public authorNews:string;
+  public authorNewsLink: string;
+  public contentNews:string;
+  public selectedButton:any;
+  public button=[
+    {TITLE:'Générale',TYPE:'general'},
+    {TITLE:'Divertissement',TYPE:'entertainment'},
+    {TITLE:'Santé',TYPE:'health'},
+    {TITLE:'Sciences',TYPE:'science'},
+    {TITLE:'Sports',TYPE:'sports'},
+    {TITLE:'La technologie',TYPE:'technology'},
+  ];
+  
   ngOnInit() {
-    this.sendNewsDataGeneral();
-
-    $('.app-news-button-src button').click(function(){  
-      $(".current").removeClass("current");
-      $(this).addClass("current");
-    }); 
-    
+    this.sendSrc('general');
   }
+
+  sendSrc(categories) {
+    this._NewsApiService.getNewsSrc(categories)
+      .subscribe(
+        res => {
+          this.srcData = res.articles;
+          this.selectedSrcData(0);
+        },
+        err => {
+          console.log(err + 'erreur ');
+        }
+      )
+  };
+
+  selectedSrcData(i){
+      this.imgNews = this.srcData[i].urlToImage;
+      this.authorNews = this.srcData[i].source.name;
+      this.contentNews= this.srcData[i].title;
+      this.authorNewsLink = this.srcData[i].url;
+  }
+
+  select(item) {
+      this.selected = item; 
+  };
+  isActive(item) {
+      return this.selected === item;
+  };
+  selectButton(item) {
+      this.selectedButton = item; 
+  };
+  isActiveButton(item) {
+      return this.selectedButton === item;
+  };
+
 }
