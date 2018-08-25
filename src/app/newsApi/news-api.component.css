@@ -70,6 +70,9 @@
     background-color:rgb(255,64,129);
 }
 
+.current{
+    background-color: red;
+}
 
 @media screen and (max-width: 640px) {
     .app-news-content-container{

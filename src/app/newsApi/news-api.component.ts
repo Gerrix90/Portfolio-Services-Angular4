@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer } from '@angular/core';
 import { NewsApiService } from './news-api.service';
+import {newsApi} from './newsApi';
 import * as $ from 'jquery';
 
 declare var anime: any;
@@ -13,28 +14,25 @@ declare var $ :any;
 })
 export class NewsApiComponent implements OnInit {
 
-  dataNews = [];
-  imgNews: string;
-  contentNews: string;
-  imgClass: boolean = false;
-  authorNews: string;
-  authorNewsLink: string;
-  srcName: string;
-  noImg: string = '../../assets/images/dummy_600x400_ffffff_cccccc_no-image-.png';
 
-  constructor(public _NewsApiService: NewsApiService, public myElement: ElementRef) { }
+  
+  constructor(public _NewsApiService: NewsApiService, public myElement: ElementRef, private renderer: Renderer) { }
+  
+  public element_: ElementRef;
+  public srcData:newsApi;
+  public imgNews:string;
+  public noImg: string = '../../assets/images/dummy_600x400_ffffff_cccccc_no-image-.png';
+  public authorNews:string;
+
+  ngOnInit() {
+    this.sendNewsDataGeneral();
+  }
 
   sendNewsDataGeneral() {
     this._NewsApiService.getNewsGeneral()
       .subscribe(
         res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
+          this.srcData = res;
         },
         err => {
           console.log(err + 'erreur ');
@@ -42,17 +40,11 @@ export class NewsApiComponent implements OnInit {
       )
   };
 
-  sendNewsDataEntertainment() {
-    this._NewsApiService.getNewsEntertainment()
+  sendOtherSrc(categories) {
+    this._NewsApiService.getNewsOthersSrc(categories)
       .subscribe(
         res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
+          this.srcData = res;
         },
         err => {
           console.log(err + 'erreur ');
@@ -60,95 +52,13 @@ export class NewsApiComponent implements OnInit {
       )
   };
 
-  sendNewsDataHealth() {
-    this._NewsApiService.getNewsHealth()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  sendNewsDataScience() {
-    this._NewsApiService.getNewsScience()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  sendNewsDataSports() {
-    this._NewsApiService.getNewsSports()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  sendNewsDataTechnology() {
-    this._NewsApiService.getNewsTechnology()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
-        },
-        err => {
-          console.log(err + 'erreur ');
-        }
-      )
-  };
-
-  selectedSrcData(element) {
-    this.imgNews = this.dataNews[element].urlToImage;
-    this.contentNews = this.dataNews[element].description;
-    this.authorNews = this.dataNews[element].author;
-    this.authorNewsLink = this.dataNews[element].url;
-    this.srcName = this.dataNews[element].source.name;
-    this.imgClass = true;
+  selectedSrcData(i){
+    this.imgNews = this.srcData.articles[i].urlToImage;
+    this.authorNews = this.srcData.articles[i].source.name;
   }
 
-  
-  ngOnInit() {
-    this.sendNewsDataGeneral();
-
-    $('.app-news-button-src button').click(function(){  
-      $(".current").removeClass("current");
-      $(this).addClass("current");
-    }); 
-    
+  activateClass(subModule){
+    subModule.active = !subModule.active;    
   }
+
 }

@@ -11,19 +11,19 @@
             <button (click)="sendNewsDataGeneral()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Générale</button>
         </div>
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-            <button (click)="sendNewsDataEntertainment()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Divertissement</button>
+            <button (click)="sendOtherSrc('entertainment')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Divertissement</button>
         </div>
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-            <button (click)="sendNewsDataHealth()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Santé</button>
+            <button (click)="sendOtherSrc('health')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Santé</button>
         </div>
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-            <button (click)="sendNewsDataScience()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sciences</button>
+            <button (click)="sendOtherSrc('science')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sciences</button>
         </div>
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-            <button (click)="sendNewsDataSports()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sports</button>
+            <button (click)="sendOtherSrc('sports')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sports</button>
         </div>
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-            <button (click)="sendNewsDataTechnology()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">La technologie</button>
+            <button (click)="sendOtherSrc('technology')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">La technologie</button>
         </div>
     </div>
     <div class="row">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 app-news-text text-center no-padding-left">
-                    <div class="app-news-text-container" *ngFor="let dataNew of dataNews; let i=index" hightlightcolor="#6740B3" texthighlightcolor="white" [appClickEnter] [appClickOut] (click)="selectedSrcData(i)"
+                    <div class="app-news-text-container" *ngFor="let dataNew of srcData['articles']; let i=index" [ngClass]="{'active': dataNew.active}" (click)="selectedSrcData(i)"
                         (mouseleave)="imgClass = false">
                         <h3>{{dataNew.title}}</h3>
                     </div>
