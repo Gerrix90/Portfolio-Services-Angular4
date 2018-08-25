@@ -21,7 +21,7 @@
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 5px;
-    transition: 1s;
+    transition: 0.5s;
     margin-right: 5px;
     cursor: pointer;
 }
@@ -45,7 +45,7 @@
 .app-news-content-container a{
     color: rgb(255,64,129);
     font-size: 14px;
-    transition: 2s;
+    transition: 0.5s;
 }
 .app-news-content-container a:hover{
     color: lightblue;
@@ -66,12 +66,16 @@
     color: white;
     margin-bottom: 5px;
 }
-.app-news-button-src button.current{
+.app-news-button-src button.active{
     background-color:rgb(255,64,129);
 }
 
-.current{
-    background-color: red;
+.app-news-text-container h3.active{
+    color:white;
+}
+
+.app-news-text-container.active{
+    background-color: #6740B3;
 }
 
 @media screen and (max-width: 640px) {
