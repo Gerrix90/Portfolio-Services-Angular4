@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { Http, ConnectionBackend, HttpModule } from '@angular/http'; 
+import { HttpClient, ConnectionBackend, HttpClientModule } from '@angular/http';
 import { JobService } from './job.service';
 
 describe('JobService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpModule ],
+      imports: [ HttpClientModule ],
       providers: [
         JobService,
         ConnectionBackend,
-        Http
+        HttpClient
       ]
     });
   });

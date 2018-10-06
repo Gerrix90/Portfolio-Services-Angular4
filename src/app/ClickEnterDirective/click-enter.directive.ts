@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
+import {Directive, ElementRef, HostListener, Input, OnInit, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[appClickEnter]'
@@ -6,31 +6,32 @@ import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/cor
 export class ClickEnterDirective implements OnInit {
 
   @Input()
-  appClickEnter:string;
+  appClickEnter: string;
 
   @Input()
-  hightlightcolor:string;
+  hightlightcolor: string;
 
   @Input()
-  texthighlightcolor:string;
+  texthighlightcolor: string;
 
-  constructor(public el : ElementRef) { }
-
-  @HostListener('click') onClick(){
-    this.hightlight(this.hightlightcolor);
-    this.texthighlight(this.texthighlightcolor)
-  }
-
-  private hightlight(color:string){
-    this.el.nativeElement.style.backgroundColor = color;
-  }
-
-  private texthighlight(color:string){
-    this.el.nativeElement.childNodes[1].style.color = color;
+  constructor(private el: ElementRef, private renderer: Renderer2) {
   }
 
   ngOnInit() {
-    
+
+  }
+
+  @HostListener('click') onClick() {
+    this.hightlight(this.hightlightcolor);
+    this.texthighlight(this.texthighlightcolor);
+  }
+
+  private hightlight(color: string) {
+    this.renderer.setStyle(this.el.nativeElement, 'background-color', color);
+  }
+
+  private texthighlight(color: string) {
+    this.renderer.setStyle(this.el.nativeElement.childNodes[1], 'color', color);
   }
 
 }

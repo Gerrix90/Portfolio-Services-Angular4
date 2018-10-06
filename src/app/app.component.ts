@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from './providers/auth.service';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Location } from '@angular/common';
 
 import * as firebase from 'firebase/app';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 
 

@@ -20,9 +20,23 @@ export class NewsApiComponent implements OnInit {
   authorNews: string;
   authorNewsLink: string;
   srcName: string;
+  activeOnglet: boolean = false;
   noImg: string = '../../assets/images/dummy_600x400_ffffff_cccccc_no-image-.png';
 
   constructor(public _NewsApiService: NewsApiService, public myElement: ElementRef) { }
+
+
+  ngOnInit() {
+    this.sendNewsDataGeneral();
+    this.changeColorButtonSection();
+  }
+
+  private changeColorButtonSection() {
+    $('.app-news-button-src button').click(function () {
+      $('.current').removeClass('current');
+      $(this).addClass('current');
+    });
+  }
 
   sendNewsDataGeneral() {
     this._NewsApiService.getNewsGeneral()
@@ -139,16 +153,5 @@ export class NewsApiComponent implements OnInit {
     this.authorNewsLink = this.dataNews[element].url;
     this.srcName = this.dataNews[element].source.name;
     this.imgClass = true;
-  }
-
-  
-  ngOnInit() {
-    this.sendNewsDataGeneral();
-
-    $('.app-news-button-src button').click(function(){  
-      $(".current").removeClass("current");
-      $(this).addClass("current");
-    }); 
-    
   }
 }

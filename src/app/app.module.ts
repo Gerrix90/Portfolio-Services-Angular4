@@ -1,16 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { OfficeComponent } from './office/office.component';
-import { NavModule } from "./nav/nav.module";
+import { NavModule } from './nav/nav.module';
 import { PresModule } from './presentation/presentation.module';
 import { SkillsModule } from './skills/skills.module';
-import { JobModule } from "./job/job.module";
+import { JobModule } from './job/job.module';
 import { ExpsModule } from './exps/exps.module';
 import { ElementFormsModule } from './element-forms/element-forms.module';
 import { ElementFormsService } from './element-forms/element-forms.service';
@@ -30,14 +29,14 @@ import { ClickOutDirective } from './ClickOutDirective/click-out.directive';
 import { InputValidsDirective } from './inputValids/input-valids.directive';
 import { ExponentialStrengthPipe } from './exponentielle-strength.pipe';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment} from '../environments/environment';
 import { AuthService } from './providers/auth.service';
 import { AppRoutes } from './app.routes';
 import { HomeComponent } from './home/home.component';
 import * as $ from 'jquery';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule} from '@angular/fire/database-deprecated';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 
 @NgModule({
@@ -62,17 +61,16 @@ import * as $ from 'jquery';
     ExpsModule,
     ElementFormsModule,
     officeModule,
-    HttpModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule, 
+    AngularFireDatabaseModule,
     AngularFireModule,
     AngularFireAuthModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,
-    ReactiveFormsModule,
-    ToastModule.forRoot()
+    ReactiveFormsModule
   ],
-  providers:  [ 
+  providers:  [
     AuthService,
     ElementFormsService,
     PresentationService,

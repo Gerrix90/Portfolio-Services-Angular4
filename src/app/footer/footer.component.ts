@@ -4,11 +4,9 @@ import { ElementFormsService } from '../element-forms/element-forms.service';
 import { PresentationService } from '../presentation/presentation.service';
 import { BlotterService } from '../blotterService/blotter.service'
 import { Socials } from '../presentation/socials';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { QuotesService } from '../quotesService/quotes.service';
 import account_validation_messages from '../config/error_inputs';
 import labels from '../config/labels';
-import { resolve } from 'q';
 
 @Component({
   selector: 'app-footer',
@@ -19,13 +17,11 @@ export class FooterComponent implements OnInit {
   constructor(
     public _elementFormService: ElementFormsService,
     public fb: FormBuilder, vcr: ViewContainerRef,
-    public toastr: ToastsManager,
     public el : ElementRef,
     public _PresentationService: PresentationService,
     public _BlotterService: BlotterService,
     public _QuotesService: QuotesService
   ) {
-    this.toastr.setRootViewContainerRef(vcr);
   }
 
   accountDetailsForm: FormGroup;
@@ -58,9 +54,9 @@ export class FooterComponent implements OnInit {
         if(this.accountDetailsForm.valid === true){
           this._elementFormService.postContactForm(formValue);
           this.accountDetailsForm.reset('');
-          this.toastFc('succes','Votre message est envoyé');
+          //this.toastFc('succes','Votre message est envoyé');
         } else if(this.accountDetailsForm.valid === false || this.accountDetailsForm.value.username == "" || this.accountDetailsForm.value.email == "") {
-          this.toastFc('error','Erreur !!! Votre message n\'a pas été envoyé, Vérifier votre saisie...');          
+          //this.toastFc('error','Erreur !!! Votre message n\'a pas été envoyé, Vérifier votre saisie...');
         }
   }
   
@@ -85,7 +81,7 @@ export class FooterComponent implements OnInit {
   }
 
 
-  toastFc = (type,text) =>{
+/*  toastFc = (type,text) =>{
     switch (type) {
       case 'succes':
         this.toastr.success(text);
@@ -100,6 +96,6 @@ export class FooterComponent implements OnInit {
         this.toastr.info(text);
       break;
     }
-  }; 
+  }; */
 
 };

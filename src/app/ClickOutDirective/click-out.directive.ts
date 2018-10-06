@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, EventEmitter, HostListener } from '@angular/core';
+import {Directive, ElementRef, Input, EventEmitter, HostListener, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[appClickOut]'
@@ -6,27 +6,32 @@ import { Directive, ElementRef, Input, EventEmitter, HostListener } from '@angul
 export class ClickOutDirective {
 
 
-  constructor(private _elementRef: ElementRef) { }
+  constructor(private _elementRef: ElementRef, private renderer: Renderer2) {
+  }
 
   @Input()
   public appClickOut = new EventEmitter();
 
   @HostListener('document:click', ['$event.target'])
   public onClick(targetElement) {
-    const clickedInside = this._elementRef.nativeElement.contains(targetElement);
+    let clickedInside = this._elementRef.nativeElement.contains(targetElement);
+    this.conditionNull(clickedInside);
+  }
+
+  private conditionNull(clickedInside) {
     if (!clickedInside) {
-      this.appClickOut.emit(null);
-      this.hightlight(null);
-      this.texthighlight(null);
+      this.appClickOut.emit('');
+      this.hightlight('');
+      this.texthighlight('');
     }
   }
 
-  private hightlight(color:string){
-    this._elementRef.nativeElement.style.backgroundColor = color;
+  private hightlight(color: string) {
+    this.renderer.setStyle(this._elementRef.nativeElement, 'background-color', color);
   }
 
-  private texthighlight(color:string){
-    this._elementRef.nativeElement.childNodes[1].style.color = color;
+  private texthighlight(color: string) {
+    this.renderer.setStyle(this._elementRef.nativeElement.childNodes[1], 'color', color);
   }
 
 

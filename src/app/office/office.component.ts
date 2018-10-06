@@ -1,54 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../providers/auth.service';
-import { Observable } from 'rxjs/Observable';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../providers/auth.service';
+import {Observable} from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
-import { Http } from '@angular/http';
-import { WeatherService } from '../weatherApi/weather.service';
+import {HttpClient} from '@angular/common/http';
+import {WeatherService} from '../weatherApi/weather.service';
 
 @Component({
 
   selector: 'office',
-
   templateUrl: './office.component.html',
-
   styleUrls: ['./office.component.css']
 
 })
 
 export class OfficeComponent implements OnInit {
 
-  user: Observable<firebase.User>;
+  private user: Observable<firebase.User>;
+  private pseudo: String;
+  private email: String;
+  private photoUrl: String;
 
-  pseudo: String;
-
-  email: String;
-
-  photoUrl: String;
-
-  constructor(public authService: AuthService, public router: Router, public _http: Http, public _WeatherService: WeatherService) {
-    
+  constructor(private authService: AuthService, private router: Router) {
     this.user = this.authService.afAuth.authState;
     this.user.subscribe((auth) => {
-      if (auth) {
-        this.pseudo = auth.displayName;
-        this.email = auth.email;
-        this.photoUrl = auth.photoURL;
-      } else {
-        return;
+        this.addValueAuth(auth);
       }
-    }
-    )
+    );
   };
 
-  logout() {
-
-    this.authService.logout();
-    window.location.href = '/';
-
+  private addValueAuth(auth) {
+    if (auth) {
+      this.pseudo = auth.displayName;
+      this.email = auth.email;
+      this.photoUrl = auth.photoURL;
+    }
   }
 
   ngOnInit() {
   }
 
+
+  logout() {
+    this.authService.logout();
+    window.location.href = '/';
+
+  }
 }

@@ -1,7 +1,9 @@
-import { Component, trigger, state, animate, style, transition, keyframes } from '@angular/core';
+import { Component } from '@angular/core';
 import { Job } from './job';
 import { Print } from './print'; 
 import { JobService } from './job.service';
+import {animate, state, style, trigger} from '@angular/animations';
+import {transition} from '@angular/animations';
 
 @Component({
     moduleId: module.id,
@@ -18,10 +20,10 @@ import { JobService } from './job.service';
     
    
         transition('none => displayOk',[
-            animate("1000ms cubic-bezier(0.6, -0.28, 0.735, 0.045)")
+            animate('1000ms cubic-bezier(0.6, -0.28, 0.735, 0.045)')
             ]),
         transition('displayOk => none',[
-            animate("500ms cubic-bezier(0.6, -0.28, 0.735, 0.045)")
+            animate('500ms cubic-bezier(0.6, -0.28, 0.735, 0.045)')
             ])
         ])       
     ],
