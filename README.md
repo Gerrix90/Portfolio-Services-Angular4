@@ -1,7 +1,7 @@
 
-# Portfolio-Services-Angular4
+# Portfolio-Services-Angular6
 
-Creation of a website to apply the different concepts of Angular 5.
+Creation of a website to apply the different concepts of Angular 6.
 
 Modules, components, Directives, Services...
 
