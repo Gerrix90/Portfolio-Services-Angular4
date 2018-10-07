@@ -22,8 +22,6 @@ import { BlotterService } from './blotterService/blotter.service';
 import { QuotesService } from './quotesService/quotes.service'
 import { NewsApiComponent } from './newsApi/news-api.component';
 import { NewsApiService } from './newsApi/news-api.service';
-import { ClickEnterDirective } from './ClickEnterDirective/click-enter.directive';
-import { ClickOutDirective } from './ClickOutDirective/click-out.directive';
 
 
 import { InputValidsDirective } from './inputValids/input-valids.directive';
@@ -48,9 +46,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     ExponentialStrengthPipe,
     FooterComponent,
     ScrollBackButtonComponent,
-    NewsApiComponent,
-    ClickEnterDirective,
-    ClickOutDirective
+    NewsApiComponent
   ],
   imports: [
     BrowserModule,
