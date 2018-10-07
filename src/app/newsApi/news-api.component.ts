@@ -31,27 +31,22 @@ export class NewsApiComponent implements OnInit {
     this.changeColorButtonSection();
   }
 
-  private changeColorButtonSection() {
-    $('.app-news-button-src button').click(function () {
-      $('.current').removeClass('current');
-      $(this).addClass('current');
-    });
+  selectedStyle(item, id) {
+    this.dataNews[id] = item;
   }
+
+  isSelectedItem(item, id) {
+    return this.dataNews[id] && this.dataNews[id] === item;
+  };
 
   sendNewsDataGeneral() {
     this._NewsApiService.getNewsGeneral()
       .subscribe(
         res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
+          this.addResHttpValueFirst(res);
         },
         err => {
-          console.log(err + 'erreur ');
+          console.log(err + 'Erreur de chargement categorie General');
         }
       )
   };
@@ -60,16 +55,10 @@ export class NewsApiComponent implements OnInit {
     this._NewsApiService.getNewsEntertainment()
       .subscribe(
         res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
+          this.addResHttpValueFirst(res);
         },
         err => {
-          console.log(err + 'erreur ');
+          console.log(err + 'Erreur de chargement categorie Divertissement');
         }
       )
   };
@@ -78,16 +67,10 @@ export class NewsApiComponent implements OnInit {
     this._NewsApiService.getNewsHealth()
       .subscribe(
         res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
+          this.addResHttpValueFirst(res);
         },
         err => {
-          console.log(err + 'erreur ');
+          console.log(err + 'Erreur de chargement categorie Santé');
         }
       )
   };
@@ -96,16 +79,10 @@ export class NewsApiComponent implements OnInit {
     this._NewsApiService.getNewsScience()
       .subscribe(
         res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
+          this.addResHttpValueFirst(res);
         },
         err => {
-          console.log(err + 'erreur ');
+          console.log(err + 'Erreur de chargement categorie Science');
         }
       )
   };
@@ -114,16 +91,10 @@ export class NewsApiComponent implements OnInit {
     this._NewsApiService.getNewsSports()
       .subscribe(
         res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
+          this.addResHttpValueFirst(res);
         },
         err => {
-          console.log(err + 'erreur ');
+          console.log(err + 'Erreur de chargement categorie Sports');
         }
       )
   };
@@ -132,26 +103,40 @@ export class NewsApiComponent implements OnInit {
     this._NewsApiService.getNewsTechnology()
       .subscribe(
         res => {
-          console.log(res);
-          this.dataNews = res.articles;
-          this.imgNews = res.articles[0].urlToImage;
-          this.contentNews = res.articles[0].description;
-          this.authorNews = res.articles[0].author;
-          this.authorNewsLink = res.articles[0].url;
-          this.srcName = res.articles[0].source.name;
+          this.addResHttpValueFirst(res);
         },
         err => {
-          console.log(err + 'erreur ');
+          console.log(err + 'Erreur de chargement categorie Technologie');
         }
       )
   };
 
   selectedSrcData(element) {
+    this.selectSrcDataItem(element);
+  }
+
+  private selectSrcDataItem(element: any) {
     this.imgNews = this.dataNews[element].urlToImage;
     this.contentNews = this.dataNews[element].description;
     this.authorNews = this.dataNews[element].author;
     this.authorNewsLink = this.dataNews[element].url;
     this.srcName = this.dataNews[element].source.name;
     this.imgClass = true;
+  }
+
+  private addResHttpValueFirst(res: any) {
+    this.dataNews = res.articles;
+    this.imgNews = res.articles[0].urlToImage;
+    this.contentNews = res.articles[0].description;
+    this.authorNews = res.articles[0].author;
+    this.authorNewsLink = res.articles[0].url;
+    this.srcName = res.articles[0].source.name;
+  }
+
+  private changeColorButtonSection() {
+    $('.app-news-button-src button').click(function () {
+      $('.current').removeClass('current');
+      $(this).addClass('current');
+    });
   }
 }

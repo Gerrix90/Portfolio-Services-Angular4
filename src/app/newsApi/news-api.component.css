@@ -84,6 +84,9 @@
 
 .app-news-text-container.active {
   background-color: #6740B3;
+}
+
+.app-news-text-container h3.active {
   color: white;
 }
 
