@@ -1,17 +1,18 @@
-<div class="app-job">
-    <div class="row">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                <div class="app-job-title-separate">
-                    <div class="rings">
-                        <h2>Web & Prints Projects</h2>
-                        <span><span></span></span>
-                        <span><span></span></span>
-                        <span><span></span></span>
-                    </div>
-                </div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <div class="app-job-title-separate">
+            <div class="rings">
+                <h2>Web & Prints Projects</h2>
+                <span><span></span></span>
+                <span><span></span></span>
+                <span><span></span></span>
             </div>
         </div>
+    </div>
+</div>
+<div class="app-job">
+    <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let job of jobs; trackBy let i=index">
             <div class="close" (click)="outDisplay(job)" [ngClass]="{'close-displayed': job.stateAnim == 'displayOk'}">
                 <i class="fas fa-times"></i>
@@ -44,7 +45,7 @@
             </div>
         </div>          
     </div>
-
+    
     <div class="row">       
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let print of prints; trackBy let i=index">
             <div class="close" (click)="outDisplay2(print)" [ngClass]="{'close-displayed': print.stateAnim == 'displayOk'}">
@@ -79,38 +80,38 @@
     </div>    
 </div>
 
-  <!-- Modal Write it social -->
+<!-- Modal Write it social -->
 
-    <div class="modal fade" id="modalWriteItSocial" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalWriteItSocial" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <div class="modal-header text-center">
-            <img src="../assets/images/logoWriteItSocial.png" alt="" width="33%">
-        </div>
-        <div class="modal-body">
-            <video width="100%" autoplay>
-                <source
+            <div class="modal-header text-center">
+                <img src="../assets/images/logoWriteItSocial.png" alt="" width="33%">
+            </div>
+            <div class="modal-body">
+                <video width="100%" autoplay>
+                    <source
                     src="../assets/videos/writeitsocial.webm"
                     type="video/webm">
-                <source
+                    <source
                     src="../assets/videos/writeitsocial.mp4"
                     type="video/mp4">
-                <source
+                    <source
                     src="../assets/videos/writeitsocial.mov"
                     type="video/mov">
-                Votre navigateur ne permet pas de lire les vidéos HTML5.
-            </video>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <img src="../assets/images/mockup-write-it-social.png" width="100%" alt="Write it social">
+                    Votre navigateur ne permet pas de lire les vidéos HTML5.
+                </video>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <img src="../assets/images/mockup-write-it-social.png" width="100%" alt="Write it social">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        </div>
-        </div>
     </div>
-    </div>
+</div>
 
 <app-modal [arrayModal]="prints"></app-modal>
