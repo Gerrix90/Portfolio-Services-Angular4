@@ -20,6 +20,7 @@ h2{
 }
 .app-footer-section-center-socials{
     background: url('../../assets/images/shattered-island.gif');
+    height: 100%
 }
 .app-footer-section-center-socials ul{
     text-align: center;

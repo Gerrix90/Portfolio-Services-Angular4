@@ -10,20 +10,21 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class QuotesService {
-
+  
   public data1:any;
   public observable: Observable<any>;
   public random:any;
-
+  public urlGetQuotes:string = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_=';
+  
   constructor(public _http: HttpClient){}
-
-
-
+  
+  
+  
   getQuotes(){
     this.random = Math.floor(Math.random() * 100);
-    return this._http.get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_='+this.random) // appel virtuel comme vers un webservice // comme sur then(fn,fr) callback ok et non
+    return this._http.get(this.urlGetQuotes + this.random)
     .map(data1 => data1)
     .do(x => console.log(x));
   }
-
+  
 }

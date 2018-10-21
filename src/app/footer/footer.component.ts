@@ -32,8 +32,9 @@ export class FooterComponent implements OnInit {
   validationConfig = account_validation_messages;
   labelInputs = labels.input[0];
   socials: Socials[];
-  quotesContent:any[];
-  quotesTitle:any[];
+  quotesContent:string[];
+  quotesTitle:string[];
+  quotesLink:string[];
   
   ngOnInit() {
     this.createForms();
@@ -47,8 +48,9 @@ export class FooterComponent implements OnInit {
     this._QuotesService.getQuotes() 
       .subscribe( 
         res => {
-          this.quotesContent = res[0]['content'].replace('<p>','').replace('</p>','').replace('<br />')
-          this.quotesTitle = res[0]['title']
+          this.quotesContent = res[0]['content'].replace('<p>','').replace('</p>','').replace('<br />');
+          this.quotesTitle = res[0]['title'];
+          this.quotesLink = res[0]['link'];
         },
         err => console.error(err.status)
       ); 
