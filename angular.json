@@ -26,7 +26,8 @@
               "node_modules/material-design-lite/material.css",
               "node_modules/animate.css/animate.min.css",
               "node_modules/open-weather-icons/dist/css/open-weather-icons.css",
-              "node_modules/devicon/devicon.min.css"
+              "node_modules/devicon/devicon.min.css",
+              "node_modules/ngx-toasta/styles/style-material.css"
             ],
             "scripts": [
               "node_modules/material-design-lite/material.js",

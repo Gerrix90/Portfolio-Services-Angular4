@@ -35,6 +35,7 @@ import * as $ from 'jquery';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database-deprecated';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import {ToastaModule} from 'ngx-toasta';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     AngularFireAuthModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastaModule.forRoot()
   ],
   providers:  [
     AuthService,

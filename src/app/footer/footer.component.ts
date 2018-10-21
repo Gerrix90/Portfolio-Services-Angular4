@@ -7,6 +7,7 @@ import { Socials } from '../presentation/socials';
 import { QuotesService } from '../quotesService/quotes.service';
 import account_validation_messages from '../config/error_inputs';
 import labels from '../config/labels';
+import {ToastaService, ToastaConfig, ToastOptions, ToastData} from 'ngx-toasta';
 
 @Component({
   selector: 'app-footer',
@@ -20,8 +21,11 @@ export class FooterComponent implements OnInit {
     public el : ElementRef,
     public _PresentationService: PresentationService,
     public _BlotterService: BlotterService,
-    public _QuotesService: QuotesService
+    public _QuotesService: QuotesService,
+    public toastaService:ToastaService,
+    public toastaConfig: ToastaConfig
   ) {
+    this.toastaConfig.theme = 'material';
   }
 
   accountDetailsForm: FormGroup;
@@ -54,9 +58,9 @@ export class FooterComponent implements OnInit {
         if(this.accountDetailsForm.valid === true){
           this._elementFormService.postContactForm(formValue);
           this.accountDetailsForm.reset('');
-          //this.toastFc('succes','Votre message est envoyé');
+          this.toastFc('succes','Votre message est envoyé');
         } else if(this.accountDetailsForm.valid === false || this.accountDetailsForm.value.username == "" || this.accountDetailsForm.value.email == "") {
-          //this.toastFc('error','Erreur !!! Votre message n\'a pas été envoyé, Vérifier votre saisie...');
+          this.toastFc('error','Erreur !!! Votre message n\'a pas été envoyé, Vérifier votre saisie...');
         }
   }
   
@@ -81,21 +85,21 @@ export class FooterComponent implements OnInit {
   }
 
 
-/*  toastFc = (type,text) =>{
+  toastFc = (type,text) =>{
     switch (type) {
       case 'succes':
-        this.toastr.success(text);
+        this.toastaService.success(text);
       break;
       case 'error':
-        this.toastr.error(text);
+        this.toastaService.error(text);
       break;  
       case 'warning':
-        this.toastr.warning(text);
+        this.toastaService.warning(text);
       break;
       case 'info':
-        this.toastr.info(text);
+        this.toastaService.info(text);
       break;
     }
-  }; */
+  }; 
 
 };
